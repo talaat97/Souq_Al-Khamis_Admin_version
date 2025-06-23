@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "615173374977",
+    "project_id": "ecommerce-fe1eb",
+    "storage_bucket": "ecommerce-fe1eb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615173374977:android:e7acd6b892a3323400ac00",
+        "android_client_info": {
+          "package_name": "com.example.souq_al_khamis_admin_version"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTgej12X3ID8ICiD8G2J_s4hDKPNkszRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
