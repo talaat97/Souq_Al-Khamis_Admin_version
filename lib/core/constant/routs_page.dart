@@ -9,4 +9,10 @@ class AppRoute {
   static const String orderDeitails = "/orderDeitails";
   //Setting
   static const String setting = "/setting";
+  //pages
+  static const String deliveriesPage = "/deliveriesPage";
+  static const String ordersPage = "/ordersPage";
+  static const String notifcationsPage = "/notifcationsPage";
+  static const String categoriesPage = "/categoriesPage";
+  static const String itemsPage = "/itemsPage";
 }

@@ -10,8 +10,7 @@ class CardAdminHome extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          Flexible(
             child: Image.asset(
               imageUrl,
               fit: BoxFit.contain,

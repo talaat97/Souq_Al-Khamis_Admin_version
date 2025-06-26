@@ -6,10 +6,11 @@ import 'package:souq_al_khamis_admin_version/core/localization/change_local.dart
 import 'package:souq_al_khamis_admin_version/core/localization/translation.dart';
 import 'package:souq_al_khamis_admin_version/core/services/services.dart';
 import 'package:souq_al_khamis_admin_version/routs.dart';
+import 'package:souq_al_khamis_admin_version/view/screens/home/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //  await Firebase.initializeApp();
   await initialServices();
   runApp(const MyApp());
 }
@@ -19,15 +20,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LocaleController localecontroller = Get.put(LocaleController()); //
-    return GetMaterialApp(
-      translations: MyTranslation(),
+    // LocaleController localecontroller = Get.put(LocaleController()); //
+    return MaterialApp(
+      //translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      locale: localecontroller.language,
-      theme: localecontroller.appTheme,
-      initialBinding: InitialBindings(),
-      getPages: routes,
+      // locale: localecontroller.language,
+      //theme: localecontroller.appTheme,
+      //initialBinding: InitialBindings(),
+      //getPages: routes,
+      home: HomePage(),
     );
   }
 }
