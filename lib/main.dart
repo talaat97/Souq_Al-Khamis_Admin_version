@@ -21,15 +21,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // LocaleController localecontroller = Get.put(LocaleController()); //
-    return MaterialApp(
+    return GetMaterialApp(
       //translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // locale: localecontroller.language,
       //theme: localecontroller.appTheme,
       //initialBinding: InitialBindings(),
-      //getPages: routes,
-      home: HomePage(),
+      getPages: routes,
+    
     );
   }
 }
