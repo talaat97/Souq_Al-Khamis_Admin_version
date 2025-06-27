@@ -4,7 +4,6 @@ import 'package:souq_al_khamis_admin_version/core/middleware/mymiddleware.dart';
 
 import 'package:souq_al_khamis_admin_version/view/screens/auth/login.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/home/home.dart';
-import 'package:souq_al_khamis_admin_version/view/screens/order/order_details_page.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(name: "/", page: () => Login(), middlewares: [
@@ -14,6 +13,4 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.login, page: () => const Login()),
   ////////////////////////////////// Order //////////////////////
   GetPage(name: AppRoute.home, page: () => const HomePage()),
-  ////////////////////////////////// Order Details //////////////////////
-  GetPage(name: AppRoute.orderDeitails, page: () => const OrderDetails()),
 ];

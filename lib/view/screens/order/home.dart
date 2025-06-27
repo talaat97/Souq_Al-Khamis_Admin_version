@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/class/handling_data.dart';
-import '../../../controller/home/pendingController.dart';
+import '../../../controller/order/pendingController.dart';
 import '../../widgets/home/card_admin_come.dart';
 
 class PendingOrders extends StatelessWidget {

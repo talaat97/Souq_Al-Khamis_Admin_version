@@ -7,7 +7,7 @@ class AppColor {
   static Color? grey200 = Colors.grey[200];
   static Color? grey600 = Colors.grey[600];
   ///////////////
-  static const Color primaryColor = Color.fromARGB(255, 219, 103, 25);
+  static const Color primaryColor = Color(0xFFDB6719);
   static const Color secondColor = Color(0xFF8B401D);
   static const Color thirdColor = Color(0xFFDB671E);
   ///////////////
