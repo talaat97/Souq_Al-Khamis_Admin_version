@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/controller/categories/categories_contollre.dart';
+import 'package:souq_al_khamis_admin_version/controller/categories/view_categories_contollre.dart';
+import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomCategoryButton.dart';
 
 import '../../../core/constant/colors.dart';
 
@@ -24,7 +25,11 @@ class CustomEditBottomShet extends StatelessWidget {
       child: IconButton(
         icon: Icon(Icons.edit, color: AppColor.grey),
         onPressed: () {
+          controller.bottomSheetVisible = true;
+          controller.update();
           showBottomSheet(
+            backgroundColor: AppColor.black.withOpacity(0.5),
+            enableDrag: false,
             context: context,
             builder: (BuildContext context) {
               return Container(
@@ -73,26 +78,15 @@ class CustomEditBottomShet extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                         ),
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            controller.toEditMode();
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(Icons.done, size: 20),
-                          label: Text('Done Editing'),
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 25),
-                            backgroundColor:
-                                AppColor.secondColor, // AppColor.primaryColor
-                            foregroundColor: Colors.white,
-
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                        ),
                         const SizedBox(height: 20),
+                        CustomCategoryButton(
+                          onPressed: () {
+                            controller.editCategory();
+                          },
+                          title: 'Edit Category',
+                          colorButton: AppColor.secondColor,
+                          icon: Icons.edit,
+                        ),
                       ],
                     ),
                   ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/controller/categories/categories_contollre.dart';
+import 'package:souq_al_khamis_admin_version/controller/categories/view_categories_contollre.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
-import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomAddBottomShet.dart';
+import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomCategoryButton.dart';
 
 class CustomFAButtons extends StatelessWidget {
   const CustomFAButtons({super.key});
@@ -13,74 +13,68 @@ class CustomFAButtons extends StatelessWidget {
     return GetBuilder<CategoriesController>(
         builder: (controller) => Stack(
               children: [
-                if (!categoriesController.modeEdit)
+                if (!categoriesController.modeEdit &&
+                    !categoriesController.modeDelete)
                   Positioned(
                     bottom: 16,
                     right: 16,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        ElevatedButton.icon(
+                        CustomCategoryButton(
+                          title: 'edit Categories',
+                          colorButton: AppColor.secondColor,
                           onPressed: () {
-                            categoriesController.toEditMode();
+                            categoriesController.switchEditMode();
                           },
-                          icon: Icon(Icons.edit, size: 20),
-                          label: Text('edit Categories'),
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 25),
-                            backgroundColor:
-                                AppColor.secondColor, // AppColor.primaryColor
-                            foregroundColor: Colors.white,
-
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
+                          icon: Icons.edit,
                         ),
                         SizedBox(height: 15),
-                        ElevatedButton.icon(
+                        CustomCategoryButton(
+                          title: 'add Categories',
+                          colorButton: AppColor.primaryColor,
+                          icon: Icons.add,
                           onPressed: () {
                             categoriesController.goToAddCategory();
                           },
-                          icon: Icon(Icons.add, size: 20),
-                          label: Text('add Categories'),
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 25),
-                            backgroundColor:
-                                AppColor.primaryColor, // AppColor.primaryColor
-                            foregroundColor: Colors.white,
-
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
+                        ),
+                        SizedBox(height: 15),
+                        CustomCategoryButton(
+                          title: 'delete Categories',
+                          colorButton: AppColor.redColor,
+                          icon: Icons.delete,
+                          onPressed: () {
+                            categoriesController.switchDeleteMode();
+                          },
                         ),
                       ],
                     ),
                   ),
-                if (categoriesController.modeEdit)
+                if (categoriesController.modeEdit &&
+                    !categoriesController.bottomSheetVisible)
                   Positioned(
                     bottom: 16,
                     right: 16,
-                    child: ElevatedButton.icon(
+                    child: CustomCategoryButton(
+                      title: 'Cancel Edit',
+                      colorButton: AppColor.redColor,
+                      icon: Icons.cancel,
                       onPressed: () {
-                        categoriesController.toEditMode();
+                        categoriesController.switchEditMode();
                       },
-                      icon: Icon(Icons.cancel_outlined, size: 20),
-                      label: Text('Cancel Edit'),
-                      style: ElevatedButton.styleFrom(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 25),
-                        backgroundColor:
-                            AppColor.redColor, // AppColor.primaryColor
-                        foregroundColor: Colors.white,
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
+                    ),
+                  ),
+                if (categoriesController.modeDelete)
+                  Positioned(
+                    bottom: 16,
+                    right: 16,
+                    child: CustomCategoryButton(
+                      title: 'Cancel Delete',
+                      colorButton: AppColor.redColor,
+                      icon: Icons.cancel,
+                      onPressed: () {
+                        categoriesController.switchDeleteMode();
+                      },
                     ),
                   ),
               ],

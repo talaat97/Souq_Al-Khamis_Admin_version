@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/controller/categories/categories_contollre.dart';
+import 'package:souq_al_khamis_admin_version/controller/categories/view_categories_contollre.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomFAButton.dart';
 import 'package:souq_al_khamis_admin_version/view/widgets/categories/cardCategories.dart';

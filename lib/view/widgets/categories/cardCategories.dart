@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomEditBottomShet.dart';
 
-import '../../../controller/categories/categories_contollre.dart';
+import '../../../controller/categories/delete_category_contoller.dart';
+import '../../../controller/categories/view_categories_contollre.dart';
 
 class CardCategories extends StatelessWidget {
   final String title;
@@ -21,6 +22,7 @@ class CardCategories extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     Get.put(CategoriesController());
+    var deleteCategoryController = Get.put(DeleteCategoryController());
     return GetBuilder<CategoriesController>(
       builder: (controller) {
         return Padding(
@@ -79,8 +81,19 @@ class CardCategories extends StatelessWidget {
                   ],
                 ),
               ),
-              if (controller.modeEdit) 
-              CustomEditBottomShet(context: ctx),
+              if (controller.modeEdit && !controller.bottomSheetVisible)
+                CustomEditBottomShet(context: ctx),
+              if (controller.modeDelete)
+                Center(
+                  child: IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red, size: 30),
+                    onPressed: () {
+                      deleteCategoryController.deleteCategory('categotryId');
+                    },
+                  ),
+                ),
+
+              //if (controller.modeDelete)
             ],
           ),
         );
