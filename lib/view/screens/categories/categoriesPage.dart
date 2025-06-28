@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:souq_al_khamis_admin_version/controller/categories/categories_contollre.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
+import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomFAButton.dart';
 import 'package:souq_al_khamis_admin_version/view/widgets/categories/cardCategories.dart';
 
+//TODO: just for test delete it when i link with backend
 int numCategories = 2;
 
 class CategoriesPage extends StatelessWidget {
@@ -20,8 +24,8 @@ class CategoriesPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(15),
         children: [
-          // Add space for larger screens
-          GridView(
+          GridView.builder(
+            itemCount: 7,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -30,42 +34,22 @@ class CategoriesPage extends StatelessWidget {
                   : numCategories = 2,
               crossAxisSpacing: 15,
               mainAxisSpacing: 15,
-              childAspectRatio: 0.8,
+              childAspectRatio: 1.3,
             ),
-            children: [
-              CardCategories(
-                  title: 'Chosse',
-                  itemNumber: 5,
-                  imageUrl: 'assets/image/default_category.png'),
-              CardCategories(
-                  title: 'bakery',
-                  itemNumber: 2,
-                  imageUrl: 'assets/image/default_category.png'),
-              CardCategories(
-                  title: 'ball',
-                  itemNumber: 15,
-                  imageUrl: 'assets/image/default_category.png'),
-              CardCategories(
-                  title: 'galsses',
-                  itemNumber: 1,
-                  imageUrl: 'assets/image/default_category.png'),
-              CardCategories(
-                  title: 'phones',
-                  itemNumber: 3,
-                  imageUrl: 'assets/image/default_category.png'),
-            ],
+            itemBuilder: (context, index) {
+              return CardCategories(
+                title: 'Category $index',
+                itemNumber: index,
+                imageUrl: 'assets/svg/shose.svg',
+                navigateTo: () {
+                  // Navigate to details page
+                },
+              );
+            },
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Action to add a new category
-        },
-        backgroundColor: AppColor.primaryColor,
-        foregroundColor: Colors.white,
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButton: CustomFAButtons(),
     );
   }
 }

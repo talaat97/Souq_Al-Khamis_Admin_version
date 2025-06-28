@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
+import 'package:souq_al_khamis_admin_version/view/widgets/categories/CustomEditBottomShet.dart';
+
+import '../../../controller/categories/categories_contollre.dart';
 
 class CardCategories extends StatelessWidget {
   final String title;
@@ -14,61 +19,72 @@ class CardCategories extends StatelessWidget {
       this.navigateTo});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: InkWell(
-        child: Card(
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          color: itemNumber != 0 ? AppColor.secondColor : AppColor.redColor,
-          child: Column(
+  Widget build(BuildContext ctx) {
+    Get.put(CategoriesController());
+    return GetBuilder<CategoriesController>(
+      builder: (controller) {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Stack(
             children: [
-              Flexible(
-                flex: 3,
-                child: Image.asset(
-                  imageUrl,
-                  fit: BoxFit.contain,
+              Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ),
-              Flexible(
-                flex: 1,
+                color:
+                    itemNumber != 0 ? AppColor.secondColor : AppColor.redColor,
                 child: Column(
                   children: [
-                    Text(
-                      'Category: $title',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      softWrap: false,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.white,
+                    Flexible(
+                      child: SvgPicture.asset(
+                        imageUrl,
+                        width: double.infinity,
+                        placeholderBuilder: (BuildContext context) => Container(
+                          width: double.infinity,
+                          height: 100,
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                        fit: BoxFit.contain,
                       ),
                     ),
-                    Text(
-                      'Number of items: ${itemNumber == 0 ? '0' : itemNumber}',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      softWrap: false,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.white,
-                      ),
+                    Column(
+                      children: [
+                        Text(
+                          'Category: $title',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.white,
+                          ),
+                        ),
+                        Text(
+                          'Number of items: ${itemNumber == 0 ? '0' : itemNumber}',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.white,
+                          ),
+                        ),
+                      ],
                     ),
-
-                    // إذا في نصوص كثيرة، ضع Scroll
-                    // Or use Flexible inside here if needed.
                   ],
                 ),
               ),
+              if (controller.modeEdit) 
+              CustomEditBottomShet(context: ctx),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
