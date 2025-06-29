@@ -40,15 +40,22 @@ class HomePage extends StatelessWidget {
                   title: 'message', imageUrl: 'assets/image/message.png'),
               CardAdminHome(title: 'order', imageUrl: 'assets/image/order.png'),
               CardAdminHome(
-                  title: 'product', imageUrl: 'assets/image/product.png'),
+                title: 'المنتـــاجات',
+                imageUrl: 'assets/image/product.png',
+                navigartTo: () {
+                  homeController.goToItemsPage();
+                },
+              ),
               CardAdminHome(
-                  title: 'product', imageUrl: 'assets/image/delivery.png'),
-              CardAdminHome(
-                  title: 'delivery',
+                  title: 'الاصنــــــاف',
                   imageUrl: 'assets/image/category.jpeg',
                   navigartTo: () {
                     homeController.goToCategoriesPage();
                   }),
+              CardAdminHome(
+                title: 'الطيــــارين',
+                imageUrl: 'assets/image/delivery.png',
+              ),
             ],
           ),
         ],
