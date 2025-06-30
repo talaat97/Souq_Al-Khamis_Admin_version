@@ -89,26 +89,46 @@ class ItemsPage extends StatelessWidget {
                     ),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
                         child: ListTile(
                           isThreeLine: true,
-                          selectedTileColor: Colors.blue.shade100,
+                          selectedTileColor:
+                              const Color.fromARGB(255, 251, 236, 187),
                           title: Text(
+                            textDirection: TextDirection.rtl,
                             currentItems[index],
-                            textAlign: TextAlign.end,
                             style: TextStyle(
                               fontSize: 18,
                               color: AppColor.primaryColor,
                             ),
                           ),
                           subtitle: Text(
-                            'وصف قصير للعنصر هذا الذي هو جزء من التصنيف $category سيمثل هنا. ببساطة',
-                            textAlign: TextAlign.end,
+                            textDirection: TextDirection.rtl,
+                            ' وصف قصير للعنصر هذا الذي هو جزء من التصنيف $category سيمثل هنا. ببساطة',
                             style: TextStyle(
                               color: Colors.grey,
                             ),
+                          ),
+                          leading: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.delete,
+                                    color: AppColor.redColor),
+                                onPressed: () {
+                                  showDeleteConfirmationDialog(context);
+                                },
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.edit,
+                                    color: AppColor.primaryColor),
+                                onPressed: () {
+                                  // هنا يمكنك إضافة وظيفة زر التعديل
+                                  print('تعديل العنصر: ${currentItems[index]}');
+                                },
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -142,4 +162,44 @@ class ItemsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+void showDeleteConfirmationDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(
+          'تنبيه',
+          textDirection: TextDirection.rtl,
+        ),
+        content: Text(
+          'هل أنت متأكد أنك تريد حذف هذا العنصر؟',
+          textDirection: TextDirection.rtl,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // إغلاق النافذة بدون حذف
+            },
+            child: Text(
+              'إلغاء',
+              textDirection: TextDirection.rtl,
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // تنفيذ الحذف هنا
+              Navigator.of(context).pop(); // إغلاق النافذة بعد الحذف
+              // يمكنك عرض SnackBar أو تحديث الحالة هنا
+            },
+            child: Text(
+              'نعم، احذف',
+              textDirection: TextDirection.rtl,
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }
