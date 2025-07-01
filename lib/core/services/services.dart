@@ -13,18 +13,18 @@ class MyServices extends GetxService {
 }
 
 initialServices() async {
-//  // var accessToken = await NotificationsHelper().getAccessToken();
+ // var accessToken = await NotificationsHelper().getAccessToken();
 //   //var deviseToken = await NotificationsHelper.firebaseMessaging.getToken();
 //   print(
 //       '========================================================================================');
 //   print("Devise Token: $deviseToken");
-//   print(
-//       '========================================================================================');
-//   print("Access Token: $accessToken");
-//   print(
-//       '========================================================================================');
+  print(
+      '========================================================================================');
+ // print("Access Token: $accessToken");
+  print(
+      '========================================================================================');
 
-//   //NotificationsHelper().requestPermissionNotification();
-//  // NotificationsHelper().configFCM();
+  //NotificationsHelper().requestPermissionNotification();
+  //NotificationsHelper().configFCM();
   await Get.putAsync(() => MyServices().intIt());
 }

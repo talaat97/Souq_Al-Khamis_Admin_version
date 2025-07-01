@@ -13,7 +13,7 @@ class SettingsContoller extends GetxController {
   var languageController = Get.put(LocaleController());
   logOut() {
     myServices.sharedPreferences.setString('step', 'onboarding');
-    NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('servises');
+   // NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('admin');
     Get.offAllNamed(AppRoute.login);
   }
 
@@ -23,9 +23,9 @@ class SettingsContoller extends GetxController {
 
   diableNotification() {
     if (notifactionSwitch) {
-      NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('servises');
+     // NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('admin');
     } else {
-      NotificationsHelper.firebaseMessaging.subscribeToTopic('servises');
+      //NotificationsHelper.firebaseMessaging.subscribeToTopic('admin');
     }
     print(
         '////////////////////////////////////////////////////////////////////');

@@ -52,7 +52,7 @@ class LogeinControllerImp extends LogeinCotroller {
             'step': 'Auth',
           };
           saveToPrefs(prefsMap);
-          NotificationsHelper.firebaseMessaging.subscribeToTopic('servises');
+         // NotificationsHelper.firebaseMessaging.subscribeToTopic('admin');
           Get.offNamed(AppRoute.home);
         }
         if (response['status'] == "failure") {
