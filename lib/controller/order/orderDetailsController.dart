@@ -6,10 +6,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../core/class/status_request.dart';
 import '../../core/constant/routs_page.dart';
-import '../../core/function/handling_data_controller.dart';
 import '../../core/services/services.dart';
-import '../../data/datacorse/remote/model/orderDetailsModel.dart';
-import '../../data/datacorse/remote/model/order_model.dart';
+import '../../data/datacorse/static/model/orderDetailsModel.dart';
+import '../../data/datacorse/static/model/order_model.dart';
 import '../../data/datacorse/remote/orders/orderDetailsData.dart';
 
 class Orderdetailscontroller extends GetxController {

@@ -11,7 +11,7 @@ ThemeData themeEnglish = ThemeData(
     titleTextStyle: TextStyle(
         color: AppColor.primaryColor, fontSize: 35, fontFamily: 'Lato'),
     centerTitle: true,
-    elevation: 0,
+    elevation: 5,
   ),
   textTheme: const TextTheme(
     titleLarge: TextStyle(
@@ -32,6 +32,14 @@ ThemeData themeEnglish = ThemeData(
 
 ThemeData themeArabic = ThemeData(
   fontFamily: 'Rubik',
+  appBarTheme: AppBarTheme(
+    color: AppColor.primaryColor,
+    backgroundColor: AppColor.primaryColor,
+    titleTextStyle:
+        TextStyle(color: AppColor.white, fontSize: 35, fontFamily: 'Rubik'),
+    centerTitle: true,
+    elevation: 5,
+  ),
   textTheme: const TextTheme(
     labelMedium: TextStyle(
         fontSize: 14,
