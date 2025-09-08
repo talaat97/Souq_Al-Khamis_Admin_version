@@ -4,10 +4,11 @@ import 'package:souq_al_khamis_admin_version/core/middleware/mymiddleware.dart';
 
 import 'package:souq_al_khamis_admin_version/view/screens/auth/login.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/categories/addCategory.dart';
-import 'package:souq_al_khamis_admin_version/view/screens/categories/categoriesPage.dart';
+import 'package:souq_al_khamis_admin_version/view/screens/categories/categories_page.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/home/home.dart';
-import 'package:souq_al_khamis_admin_version/view/screens/items/addItem.dart';
+import 'package:souq_al_khamis_admin_version/view/screens/items/add_Item.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/items/items_page.dart';
+import 'package:souq_al_khamis_admin_version/view/screens/notification/notification_page.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(name: "/", page: () => Login(), middlewares: [
@@ -23,4 +24,6 @@ List<GetPage<dynamic>>? routes = [
   ////////////////////////////////// items //////////////////////
   GetPage(name: AppRoute.itemsPage, page: () => const ItemsPage()),
   GetPage(name: AppRoute.addItem, page: () => const AddItemPage()),
+  GetPage(
+      name: AppRoute.notifcationsPage, page: () => const NotificationPage()),
 ];

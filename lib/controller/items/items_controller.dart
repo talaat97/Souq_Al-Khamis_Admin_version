@@ -1,90 +1,34 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/data/datacorse/static/model/category_model.dart';
+import 'package:souq_al_khamis_admin_version/core/class/status_request.dart';
+import 'package:souq_al_khamis_admin_version/core/function/handling_data_controller.dart';
+import 'package:souq_al_khamis_admin_version/data/datacorse/remote/items/item_data.dart';
 import 'package:souq_al_khamis_admin_version/data/datacorse/static/model/item_model.dart';
 
-import '../../core/class/status_request.dart';
-import '../../core/constant/routs_page.dart';
-import '../../core/function/handling_data_controller.dart';
-import '../../core/services/services.dart';
-import '../../data/datacorse/remote/items/item_data.dart';
+class ItemsByCategoryController extends GetxController {
+  final ItemData itemsData = ItemData(Get.find());
 
-class ItemController extends GetxController {
-  TextEditingController titleController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
-  TextEditingController arTitleController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  List<ItemModel> items = [];
-  List<CategoryModel> categories = [];
-  ItemData itemsData = ItemData(Get.find());
-  MyServices myServices = Get.find();
-  String? catName;
-  StatusRequest statusRequest = StatusRequest.loading;
+  Map<int, List<ItemModel>> itemsByCategory = {}; // categoryId -> items
+  Map<int, StatusRequest> statusByCategory = {}; // categoryId -> status
 
-  @override
-  void onInit() {
-    getIems('1');
-    super.onInit();
-  }
+  Future<void> getItems(int categoryId) async {
+    if (statusByCategory[categoryId] == StatusRequest.loading) return;
+    if (itemsByCategory[categoryId] != null) return; // already loaded ✅
 
-  getIems(String categortId) async {
-    statusRequest = StatusRequest.loading;
-    update();
-    items.clear();
-    categories.clear();
+    statusByCategory[categoryId] = StatusRequest.loading;
+    update(["tab-$categoryId"]);
 
-    var response = await itemsData.getItems(categortId);
+    var response = await itemsData.getItems(categoryId);
+    var status = handlingData(response);
 
-    statusRequest = handlingData(response);
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'success') {
-        List responseData = response['items'];
-        items.addAll(responseData.map((e) => ItemModel.fromJson(e)));
-
-        //======//
-        List responseData2 = response['categories'];
-        categories.addAll(responseData2.map((e) => CategoryModel.fromJson(e)));
-
-        update();
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
+    if (status == StatusRequest.success && response['status'] == 'success') {
+      List responseData = response['data'];
+      itemsByCategory[categoryId] =
+          responseData.map((e) => ItemModel.fromJson(e)).toList();
+      statusByCategory[categoryId] = StatusRequest.success;
+    } else {
+      statusByCategory[categoryId] = StatusRequest.failure;
     }
-    update();
-  }
 
-  @override
-  void onClose() {
-    titleController.dispose();
-    descriptionController.dispose();
-    arTitleController.dispose();
-    imageController.dispose();
-    super.onClose();
-  }
-
-  goToAddItemPage() {
-    Get.toNamed(AppRoute.addItem);
-  }
-
-  getItemsByCategory(categoryId) async {
-    items.clear();
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await itemsData.getItems(
-      categoryId.toString(),
-    );
-    statusRequest = handlingData(response);
-
-    if (StatusRequest.sucess == statusRequest) {
-      if (response['status'] == 'success') {
-        List responseData = response['items'];
-        items.addAll(responseData.map((e) => ItemModel.fromJson(e)).toList());
-        update();
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    update();
+    update(["tab-$categoryId"]);
   }
 }

@@ -1,4 +1,4 @@
 class AppImageAsset {
-  static const rootImage = 'assets/images';
-  static const deliveryLogo = '$rootImage/deliveryLogo.png';
+  static const rootImage = 'assets/image';
+  static const loginImage = '$rootImage/loginImage.png';
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/controller/categories/view_categories_contollre.dart'
-    show CategoriesController;
 
 import '../../../controller/items/items_controller.dart';
 import '../../../core/constant/colors.dart';

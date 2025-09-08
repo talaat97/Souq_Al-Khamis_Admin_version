@@ -9,7 +9,7 @@ ThemeData themeEnglish = ThemeData(
   appBarTheme: const AppBarTheme(
     color: AppColor.white,
     titleTextStyle: TextStyle(
-        color: AppColor.primaryColor, fontSize: 35, fontFamily: 'Lato'),
+        color: AppColor.primaryColor, fontSize: 24, fontFamily: 'Lato'),
     centerTitle: true,
     elevation: 5,
   ),

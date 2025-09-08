@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:souq_al_khamis_admin_version/core/class/status_request.dart';
@@ -13,10 +14,8 @@ class Crud {
         var response = await http.post(Uri.parse(linkurl), body: data);
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map responsebody = jsonDecode(response.body);
-          print(
-              'gave to HTTP reqest====================================== $data');
-          print(
-              'response from HTTP request ============================= ${response.body}');
+          log('gave to HTTP reqest====================================== $data');
+          log('response from HTTP request ============================= ${response.body}');
           return Right(responsebody);
         } else {
           return const Left(StatusRequest.serverfailure);

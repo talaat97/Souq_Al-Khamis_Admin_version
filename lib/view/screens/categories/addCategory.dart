@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
-import 'package:souq_al_khamis_admin_version/controller/categories/view_categories_contollre.dart'
+
+import 'package:souq_al_khamis_admin_version/controller/categories/view_contollre.dart'
     show CategoriesController;
 
 import '../../../core/constant/colors.dart';

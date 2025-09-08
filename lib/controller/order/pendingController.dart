@@ -24,11 +24,11 @@ class HomeController extends GetxController {
     update();
     var response = await ordersData.getPendingOrders();
     statusRequest = handlingData(response);
-    if (StatusRequest.sucess == statusRequest) {
+    if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         List responseData = response['data'];
         ordersPending.addAll(responseData.map((e) => OrderModel.fromJson(e)));
-        statusRequest = StatusRequest.sucess;
+        statusRequest = StatusRequest.success;
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -59,11 +59,11 @@ class HomeController extends GetxController {
     };
     var response = await ordersData.orderApprove(data);
     statusRequest = handlingData(response);
-    if (StatusRequest.sucess == statusRequest) {
+    if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         getPendingOrders();
         acceptedController.getAcceptedOrders();
-        statusRequest = StatusRequest.sucess;
+        statusRequest = StatusRequest.success;
       } else {
         statusRequest = StatusRequest.failure;
       }

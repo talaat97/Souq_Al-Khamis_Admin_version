@@ -28,8 +28,11 @@ class HomePage extends StatelessWidget {
             ),
             children: [
               CardAdminHome(
-                title: 'notifaction',
+                title: 'الاشعـــــرات',
                 imageUrl: 'assets/image/notifaction.png',
+                navigartTo: () {
+                  homeController.goToNotificationsPage();
+                },
               ),
               CardAdminHome(
                   title: 'message', imageUrl: 'assets/image/message.png'),

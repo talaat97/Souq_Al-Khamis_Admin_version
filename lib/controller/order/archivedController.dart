@@ -23,11 +23,11 @@ class Archivedcontroller extends GetxController {
       myServices.sharedPreferences.getString('deliveryId').toString(),
     );
     statusRequest = handlingData(response);
-    if (StatusRequest.sucess == statusRequest) {
+    if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         List responseData = response['data'];
         archivedOrders.addAll(responseData.map((e) => OrderModel.fromJson(e)));
-        statusRequest = StatusRequest.sucess;
+        statusRequest = StatusRequest.success;
       } else {
         statusRequest = StatusRequest.failure;
       }
