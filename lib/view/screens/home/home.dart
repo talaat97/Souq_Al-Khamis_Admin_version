@@ -27,6 +27,12 @@ class HomePage extends StatelessWidget {
               mainAxisSpacing: 15,
             ),
             children: [
+                 CardAdminHome(
+                  title: 'الاصنــــــاف',
+                  imageUrl: 'assets/image/category.jpeg',
+                  navigartTo: () {
+                    homeController.goToCategoriesPage();
+                  }),
               CardAdminHome(
                 title: 'الاشعـــــرات',
                 imageUrl: 'assets/image/notifaction.png',
@@ -44,12 +50,7 @@ class HomePage extends StatelessWidget {
                   homeController.goToItemsPage();
                 },
               ),
-              CardAdminHome(
-                  title: 'الاصنــــــاف',
-                  imageUrl: 'assets/image/category.jpeg',
-                  navigartTo: () {
-                    homeController.goToCategoriesPage();
-                  }),
+           
               CardAdminHome(
                 title: 'الطيــــارين',
                 imageUrl: 'assets/image/delivery.png',

@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/binding/initial-binding.dart';
+import 'package:souq_al_khamis_admin_version/binding/initial_binding.dart';
 import 'package:souq_al_khamis_admin_version/core/localization/change_local.dart';
 import 'package:souq_al_khamis_admin_version/core/localization/translation.dart';
 import 'package:souq_al_khamis_admin_version/core/services/services.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LocaleController localecontroller = Get.put(LocaleController()); //
+    LocaleController localecontroller = Get.put(LocaleController()); 
     return GetMaterialApp(
       translations: MyTranslation(),
       debugShowCheckedModeBanner: false,

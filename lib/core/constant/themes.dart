@@ -5,6 +5,7 @@ ThemeData themeEnglish = ThemeData(
   fontFamily: 'Lato',
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: AppColor.primaryColor,
+    foregroundColor: AppColor.black,
   ),
   appBarTheme: const AppBarTheme(
     color: AppColor.white,

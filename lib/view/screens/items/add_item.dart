@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../controller/items/items_controller.dart';
+
 import '../../../core/constant/colors.dart';
 
 class AddItemPage extends StatelessWidget {
@@ -9,13 +8,12 @@ class AddItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var itemController = Get.find<ItemController>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Item'),
       ),
       body: Form(
-        key: itemController.formKey,
+      
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(

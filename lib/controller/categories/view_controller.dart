@@ -42,6 +42,10 @@ class CategoriesController extends GetxController {
     update();
   }
 
+  void goToAddCategoryPage() {
+    Get.toNamed(AppRoute.addCategory);
+  }
+
   void switchEditMode() {
     modeEdit = !modeEdit;
     update();

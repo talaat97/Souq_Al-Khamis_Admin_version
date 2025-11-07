@@ -3,7 +3,7 @@ import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
 import 'package:souq_al_khamis_admin_version/core/middleware/mymiddleware.dart';
 
 import 'package:souq_al_khamis_admin_version/view/screens/auth/login.dart';
-import 'package:souq_al_khamis_admin_version/view/screens/categories/addCategory.dart';
+import 'package:souq_al_khamis_admin_version/view/screens/categories/add_category.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/categories/categories_page.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/home/home.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/items/add_Item.dart';

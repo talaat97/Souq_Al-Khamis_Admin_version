@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:get/instance_manager.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../controller/categories/view_contollre.dart';
+import '../../../controller/categories/view_controller.dart';
 import '../../../link_api.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CategoriesController());
+    var controller = Get.put(CategoriesController());
     return Scaffold(
       appBar: AppBar(
         title: Text('Categories'),
@@ -25,23 +25,35 @@ class CategoriesPage extends StatelessWidget {
           ),
           itemCount: controller.categories.length, // Example item count
           itemBuilder: (context, index) {
-            return Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SvgPicture.network(
-                    '${Applink.categoriesLink}/${controller.categories[index].categoriesImage}',
-                    height: 80,
-                    width: 80,
-                    placeholderBuilder: (context) =>
-                        CircularProgressIndicator(),
-                  ),
-                  Text(controller.categories[index].categoriesName!),
-                ],
+            return GestureDetector(
+              onTap: () {},
+              child: Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SvgPicture.network(
+                      '${Applink.categoriesLink}/${controller.categories[index].categoriesImage}',
+                      height: 90,
+                      placeholderBuilder: (context) =>
+                          CircularProgressIndicator(),
+                    ),
+                    Text(controller.categories[index].categoriesName!),
+                  ],
+                ),
               ),
             );
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          controller.goToAddCategoryPage();
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        label: Text('Add Category'),
+        icon: Icon(Icons.add),
       ),
     );
   }

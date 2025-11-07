@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
-import 'package:souq_al_khamis_admin_version/core/function/store_mapData_sPref.dart';
+import 'package:souq_al_khamis_admin_version/core/function/store_map_data_shared_pref.dart';
 import 'package:souq_al_khamis_admin_version/core/services/services.dart';
 import 'package:souq_al_khamis_admin_version/data/datacorse/remote/Auth/login_data.dart';
 
@@ -33,16 +33,6 @@ class LogeinControllerImp extends LogeinCotroller {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          // myServices.sharedPreferences
-          //     .setString('deliveryId', response['data']['delivery_id']);
-          // myServices.sharedPreferences
-          //     .setString('deliveryName', response['data']['delivery_name']);
-          // myServices.sharedPreferences
-          //     .setString('deliveryEmail', response['data']['delivery_email']);
-          // myServices.sharedPreferences
-          //     .setString('deliveryPhone', response['data']['delivery_phone']);
-          // myServices.sharedPreferences.setString('step', 'Auth');
-          // save data to shared preferences
           final prefsMap = {
             'deliveryId': response['data']['delivery_id'],
             'deliveryName': response['data']['delivery_name'],
