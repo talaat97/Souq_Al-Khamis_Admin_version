@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../core/function/notification_helper.dart';
+
 import '../../core/localization/change_local.dart';
 import '../../core/services/services.dart';
 
@@ -13,7 +13,7 @@ class SettingsContoller extends GetxController {
   var languageController = Get.put(LocaleController());
   logOut() {
     myServices.sharedPreferences.setString('step', 'onboarding');
-    NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('servises');
+    // NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('servises');
     Get.offAllNamed(AppRoute.login);
   }
 
@@ -23,9 +23,9 @@ class SettingsContoller extends GetxController {
 
   diableNotification() {
     if (notifactionSwitch) {
-      NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('servises');
+      //  NotificationsHelper.firebaseMessaging.unsubscribeFromTopic('servises');
     } else {
-      NotificationsHelper.firebaseMessaging.subscribeToTopic('servises');
+      //NotificationsHelper.firebaseMessaging.subscribeToTopic('servises');
     }
     print(
         '////////////////////////////////////////////////////////////////////');

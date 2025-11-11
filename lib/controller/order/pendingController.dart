@@ -5,7 +5,7 @@ import '../../core/class/status_request.dart';
 
 import '../../core/constant/routs_page.dart';
 import '../../core/function/handling_data_controller.dart';
-import '../../core/function/notification_helper.dart';
+
 import '../../core/services/services.dart';
 import '../../data/datacorse/remote/model/order_model.dart';
 import '../../data/datacorse/remote/orders/OrdersData.dart';
@@ -45,7 +45,7 @@ class HomeController extends GetxController {
   orderApprove(OrderModel orderModel) async {
     statusRequest = StatusRequest.loading;
     update();
-    accessToken = await NotificationsHelper().getAccessToken();
+    // accessToken = await NotificationsHelper().getAccessToken();
     Map data = {
       "deliveryId":
           myServices.sharedPreferences.getString('deliveryId').toString(),

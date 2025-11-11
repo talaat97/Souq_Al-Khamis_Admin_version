@@ -7,7 +7,6 @@ import 'package:souq_al_khamis_admin_version/data/datacorse/remote/Auth/login_da
 
 import '../../core/class/status_request.dart';
 import '../../core/function/handling_data_controller.dart';
-import '../../core/function/notification_helper.dart';
 
 abstract class LogeinCotroller extends GetxController {
   login();
@@ -52,7 +51,7 @@ class LogeinControllerImp extends LogeinCotroller {
             'step': 'Auth',
           };
           saveToPrefs(prefsMap);
-          NotificationsHelper.firebaseMessaging.subscribeToTopic('servises');
+          //NotificationsHelper.firebaseMessaging.subscribeToTopic('servises');
           Get.offNamed(AppRoute.home);
         }
         if (response['status'] == "failure") {
