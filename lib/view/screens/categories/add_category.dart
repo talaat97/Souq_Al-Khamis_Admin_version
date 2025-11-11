@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'package:souq_al_khamis_admin_version/controller/categories/view_controller.dart';
 import 'package:souq_al_khamis_admin_version/core/shared/app_text_form_field.dart';
 
 import '../../../core/constant/colors.dart';
@@ -11,77 +9,57 @@ class AddCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var categoriesController = Get.find<CategoriesController>();
     return Scaffold(
         appBar: AppBar(
           title: Text('Add Category'),
         ),
         body: Form(
-          key: categoriesController.formKey,
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-              child: ListView.separated(
-                padding: const EdgeInsets.all(16),
-                itemCount: 7, // 6 fields + 1 button
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 16),
-                itemBuilder: (context, index) {
-                  final fields = [
-                    AppTextFormField(
-                      hintText: 'Category Name',
-                      validator: (value) => value == null || value.isEmpty
-                          ? 'Please enter category name'
-                          : null,
-                    ),
-                    AppTextFormField(
-                      hintText: 'Category Name Arabic',
-                      validator: (value) => value == null || value.isEmpty
-                          ? 'Please enter category name'
-                          : null,
-                    ),
-                    AppTextFormField(
-                      hintText: 'Category Description',
-                      validator: (value) => value == null || value.isEmpty
-                          ? 'Please enter category description'
-                          : null,
-                    ),
-                    AppTextFormField(
-                      hintText: 'Category Description Arabic',
-                      validator: (value) => value == null || value.isEmpty
-                          ? 'Please enter category description'
-                          : null,
-                    ),
-                    AppTextFormField(
-                      hintText: 'Category Price',
-                      validator: (value) => value == null || value.isEmpty
-                          ? 'Please enter category price'
-                          : null,
-                    ),
-                    AppTextFormField(
-                      hintText: 'Category Count',
-                      validator: (value) => value == null || value.isEmpty
-                          ? 'Please enter category count'
-                          : null,
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.done, size: 20),
-                      label: const Text('Add Category'),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 25),
-                        backgroundColor: AppColor.secondColor,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+          child: ListView.separated(
+            padding: const EdgeInsets.all(12),
+            itemCount: 4, // 6 fields + 1 button
+            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            itemBuilder: (context, index) {
+              final fields = [
+                AppTextFormField(
+                  hintText: 'Category Name',
+                  validator: (value) => value == null || value.isEmpty
+                      ? 'Please enter category name'
+                      : null,
+                ),
+                AppTextFormField(
+                  hintText: 'Category Name Arabic',
+                  validator: (value) => value == null || value.isEmpty
+                      ? 'Please enter category name'
+                      : null,
+                ),
+                Container(
+                  height: 300,
+                  decoration: BoxDecoration(
+                    color: AppColor.grey200,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: AppColor.grey600!, width: 1.3),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.image, size: 110, color: AppColor.grey),
+                      SizedBox(height: 7),
+                      Text(
+                        'Tap to upload category image',
+                        style: TextStyle(color: AppColor.grey),
                       ),
-                    ),
-                  ];
+                    ],
+                  ),
+                ),
+                ElevatedButton.icon(
+                  onPressed: () => Navigator.pop(context),
+                  label: const Text('Add Category'),
+                ),
+              ];
 
-                  return fields[index];
-                },
-              )),
+              return fields[index];
+            },
+          ),
         ));
   }
 }

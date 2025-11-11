@@ -16,8 +16,10 @@ class Applink {
   //============================================ items ============================================//
   static const String items = '$server/items/items.php';
   //============================================ categories ============================================//
-
   static const String categoriesView = '$server/categories/view.php';
+  static const String categoriesAdd = '$server/categories/add.php';
+  static const String categoriesDelete = '$server/categories/delete.php';
+  static const String categoriesEdit = '$server/categories/edit.php';
   //============================================ notification ============================================//
   static const String notification = '$server/notification/view.php';
 }

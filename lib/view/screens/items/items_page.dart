@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../controller/items/items_controller.dart';
 
 class ItemsPage extends StatelessWidget {
   const ItemsPage({
@@ -7,6 +10,7 @@ class ItemsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ItemsController());
     return Scaffold(
       appBar: AppBar(
         title: Text('Items Page'),

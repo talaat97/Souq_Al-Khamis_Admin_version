@@ -9,10 +9,6 @@ class AddCategoryController extends GetxController {
   TextEditingController imageController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  void goToViewCategories() {
-    Get.toNamed(AppRoute.categoriesPage);
-  }
-
   void addCategory() {
     if (formKey.currentState!.validate()) {
       // Add your logic to add the category here
@@ -22,5 +18,9 @@ class AddCategoryController extends GetxController {
     } else {
       Get.snackbar('Error', 'Please fill in all fields correctly');
     }
+  }
+
+  void goToViewCategories() {
+    Get.offAllNamed(AppRoute.categoriesPage);
   }
 }

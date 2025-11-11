@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../core/constant/colors.dart';
 
 class AddItemPage extends StatelessWidget {
@@ -13,7 +12,6 @@ class AddItemPage extends StatelessWidget {
         title: Text('Add Item'),
       ),
       body: Form(
-      
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
@@ -56,7 +54,7 @@ class AddItemPage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 25),
                   backgroundColor:
-                      AppColor.secondColor, // AppColor.primaryColor
+                      AppColor.secondaryColor, // AppColor.primaryColor
                   foregroundColor: Colors.white,
 
                   shape: RoundedRectangleBorder(

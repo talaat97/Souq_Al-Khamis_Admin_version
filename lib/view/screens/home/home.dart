@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     var homeController = Get.put(HomeController());
     return Scaffold(
       appBar: AppBar(
+        elevation: 5,
         centerTitle: true,
         title: Text('الصفحة الرئيسية'),
       ),
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
               mainAxisSpacing: 15,
             ),
             children: [
-                 CardAdminHome(
+              CardAdminHome(
                   title: 'الاصنــــــاف',
                   imageUrl: 'assets/image/category.jpeg',
                   navigartTo: () {
@@ -50,7 +51,6 @@ class HomePage extends StatelessWidget {
                   homeController.goToItemsPage();
                 },
               ),
-           
               CardAdminHome(
                 title: 'الطيــــارين',
                 imageUrl: 'assets/image/delivery.png',

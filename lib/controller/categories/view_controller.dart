@@ -1,23 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
+
 import 'package:get/get.dart';
+
 import 'package:souq_al_khamis_admin_version/core/class/status_request.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
 import 'package:souq_al_khamis_admin_version/core/function/handling_data_controller.dart';
 import 'package:souq_al_khamis_admin_version/data/datacorse/remote/categories/categories_data.dart';
 import 'package:souq_al_khamis_admin_version/data/datacorse/static/model/category_model.dart';
 
-class CategoriesController extends GetxController {
-  TextEditingController titleController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
-  TextEditingController arTitleController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class ViewController extends GetxController {
   CategoriesData categoriesData = CategoriesData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.loading;
   List<CategoryModel> categories = [];
-  bool modeEdit = false;
-  bool modeDelete = false;
-  bool bottomSheetVisible = false;
 
   @override
   void onInit() {
@@ -27,14 +21,19 @@ class CategoriesController extends GetxController {
 
   getCategories() async {
     statusRequest = StatusRequest.loading;
-    update();
     categories.clear();
-    var response = await categoriesData.getCategories();
+    update();
+    var response = await categoriesData.view();
     statusRequest = handlingData(response);
+    log("==============================");
+    log(statusRequest.toString());
+    log("==============================");
+
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         List responseData = response['data'];
         categories.addAll(responseData.map((e) => CategoryModel.fromJson(e)));
+        update();
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -44,41 +43,5 @@ class CategoriesController extends GetxController {
 
   void goToAddCategoryPage() {
     Get.toNamed(AppRoute.addCategory);
-  }
-
-  void switchEditMode() {
-    modeEdit = !modeEdit;
-    update();
-  }
-
-  void goToAddCategory() {
-    Get.toNamed(AppRoute.addCategory);
-  }
-
-  void switchDeleteMode() {
-    modeDelete = !modeDelete;
-    update();
-  }
-
-  void editCategory() {
-    modeEdit = false;
-    bottomSheetVisible = false;
-    update();
-    Get.back();
-  }
-
-  void deleteCategory() {
-    // Perform delete operation
-    Get.back();
-    update();
-  }
-
-  @override
-  void onClose() {
-    titleController.dispose();
-    descriptionController.dispose();
-    arTitleController.dispose();
-    imageController.dispose();
-    super.onClose();
   }
 }

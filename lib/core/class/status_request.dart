@@ -6,4 +6,5 @@ enum StatusRequest {
   offlinefailure,
   serverExaption,
   none,
+  timeoutfailure
 }

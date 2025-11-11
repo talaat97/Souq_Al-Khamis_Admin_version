@@ -8,8 +8,12 @@ class AppColor {
   static Color? grey600 = Colors.grey[600];
   ///////////////
   static const Color primaryColor = Color(0xFFDB6719);
-  static const Color secondColor = Color(0xFF8B401D);
-  static const Color thirdColor = Color(0xFFDB671E);
+  static const Color secondaryColor = Color(0xFF8B401D);
+  static const Color tertiaryColor = Color(0xFFF4A261);
+  static const Color backgroundColor = Color(0xFFFFF8F4);
+  static const Color surfaceColor = Color(0xFFFFEFE3);
+  static const Color textPrimary = Color(0xFF2C1810);
+  static const Color textSecondary = Color(0xFF5C3B2A);
   ///////////////
   static const Color redColor = Color(0xFFB32218);
   static const Color greenColor = Color.fromARGB(255, 20, 121, 16);

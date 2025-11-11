@@ -35,21 +35,20 @@ class AppTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        isDense: true,
         contentPadding: contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+            EdgeInsets.symmetric(horizontal: 12, vertical: 15),
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: AppColor.grey,
+                color: AppColor.primaryColor,
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(15.0),
             ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColor.black,
+              borderSide: BorderSide(
+                color: AppColor.grey600!,
                 width: 1.3,
               ),
               borderRadius: BorderRadius.circular(16.0),
@@ -65,14 +64,14 @@ class AppTextFormField extends StatelessWidget {
         //hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? AppColor.secondColor.withOpacity(0.1),
+        fillColor: backgroundColor ?? AppColor.grey200,
         filled: true,
       ),
       obscureText: isObscureText ?? false,
       style: TextStyle(
-        fontSize: 14,
+        fontSize: 15,
         fontWeight: FontWeightHelper.bold,
-        color: AppColor.secondColor,
+        color: AppColor.black,
       ),
       validator: (value) {
         return validator(value);

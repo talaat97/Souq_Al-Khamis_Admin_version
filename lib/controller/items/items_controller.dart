@@ -4,7 +4,7 @@ import 'package:souq_al_khamis_admin_version/core/function/handling_data_control
 import 'package:souq_al_khamis_admin_version/data/datacorse/remote/items/item_data.dart';
 import 'package:souq_al_khamis_admin_version/data/datacorse/static/model/item_model.dart';
 
-class ItemsByCategoryController extends GetxController {
+class ItemsController extends GetxController {
   final ItemData itemsData = ItemData(Get.find());
 
   Map<int, List<ItemModel>> itemsByCategory = {}; // categoryId -> items

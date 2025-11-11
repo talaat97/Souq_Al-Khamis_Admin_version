@@ -18,7 +18,9 @@ class HandlingDataView extends StatelessWidget {
                 ? const Center(child: Text('Server'))
                 : statusRequest == StatusRequest.failure
                     ? const Center(child: Text('no data'))
-                    : widget;
+                    : statusRequest == StatusRequest.timeoutfailure
+                        ? const Center(child: Text('timeoutfailure'))
+                        : widget;
   }
 }
 
@@ -36,6 +38,8 @@ class HandlingDataRequest extends StatelessWidget {
             ? const Center(child: Text('Offline'))
             : statusRequest == StatusRequest.serverfailure
                 ? const Center(child: Text('Server'))
-                : widget;
+                : statusRequest == StatusRequest.timeoutfailure
+                    ? const Center(child: Text('Time Out'))
+                    : widget;
   }
 }
