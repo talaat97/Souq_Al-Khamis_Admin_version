@@ -12,7 +12,7 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.put(SettingsContoller());
     return Container(
-      color: AppColor.secondColor,
+      color: AppColor.secondaryColor,
       child: ListView(
         children: [
           Stack(

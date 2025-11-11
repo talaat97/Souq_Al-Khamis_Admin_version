@@ -42,7 +42,7 @@ Future<bool> exitAlert() {
           style: ButtonStyle(
             foregroundColor: WidgetStateProperty.all<Color>(AppColor.white),
             backgroundColor:
-                WidgetStateProperty.all<Color>(AppColor.secondColor),
+                WidgetStateProperty.all<Color>(AppColor.secondaryColor),
           ),
           onPressed: () {
             exit(0);

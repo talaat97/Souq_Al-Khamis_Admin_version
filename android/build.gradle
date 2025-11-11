@@ -3,7 +3,7 @@ allprojects {
         google()
         mavenCentral()
     }
-        // Add this part -------------->
+// Add this part -------------->
     subprojects {
         afterEvaluate { project ->
             if (project.hasProperty('android')) {

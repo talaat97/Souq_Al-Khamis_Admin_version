@@ -12,9 +12,9 @@ class Mymiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    String? step =  "Auth";
-     //myServices.sharedPreferences.getString("step");
-    log('$step');
+    String? step = "Auth";
+    //myServices.sharedPreferences.getString("step");
+    log(step);
 
     if (step == "Auth") {
       log('--------------------فهمك عمتا !! --------------------------');

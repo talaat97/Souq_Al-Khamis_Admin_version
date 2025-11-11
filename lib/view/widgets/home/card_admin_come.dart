@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:souq_al_khamis_admin_version/core/constant/colors.dart'
+    show AppColor;
 
 class CardAdminHome extends StatelessWidget {
   final String title;
@@ -15,6 +17,8 @@ class CardAdminHome extends StatelessWidget {
     return InkWell(
       onTap: navigartTo,
       child: Card(
+        elevation: 5,
+        color: Color(0xFFFFEEE0),
         child: Column(
           children: <Widget>[
             Flexible(
@@ -25,7 +29,10 @@ class CardAdminHome extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: AppColor.textPrimary),
             ),
           ],
         ),
