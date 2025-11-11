@@ -4,7 +4,7 @@ import '../../../core/class/handling_data.dart';
 import '../../../core/class/status_request.dart';
 import '../../../core/constant/colors.dart';
 import '../../../core/function/order_functions.dart';
-import '../../../data/datacorse/remote/model/order_model.dart';
+import '../../../data/datacorse/static/model/order_model.dart';
 
 class ArchiveCardTheme extends StatelessWidget {
   final OrderModel orderModel;

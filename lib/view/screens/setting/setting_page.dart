@@ -33,7 +33,7 @@ class SettingPage extends StatelessWidget {
                     child: const CircleAvatar(
                       radius: 90,
                       backgroundColor: AppColor.primaryColor,
-                      backgroundImage: AssetImage(AppImageAsset.deliveryLogo),
+                      backgroundImage: AssetImage(AppImageAsset.loginImage),
                     ),
                   ))
             ],

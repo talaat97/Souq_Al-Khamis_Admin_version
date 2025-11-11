@@ -43,4 +43,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+#to tell github to ignore a specific file
 lib/core/function/notification_helper.dart

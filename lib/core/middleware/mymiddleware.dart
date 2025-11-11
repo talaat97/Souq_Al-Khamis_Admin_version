@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
@@ -10,12 +12,16 @@ class Mymiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    if (myServices.sharedPreferences.getString("step") == "Auth") {
-      print('--------------------فهمك عمتا !! --------------------------');
+    String? step =  "Auth";
+     //myServices.sharedPreferences.getString("step");
+    log('$step');
+
+    if (step == "Auth") {
+      log('--------------------فهمك عمتا !! --------------------------');
       return const RouteSettings(name: AppRoute.home);
     }
 
-    if (myServices.sharedPreferences.getString("step") == "onboarding") {
+    if (step == "onboarding") {
       return const RouteSettings(name: AppRoute.login);
     }
 
