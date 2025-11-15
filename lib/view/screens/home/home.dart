@@ -15,50 +15,74 @@ class HomePage extends StatelessWidget {
         elevation: 5,
         centerTitle: true,
         title: Text('الصفحة الرئيسية'),
+        actions: [
+          Obx(() {
+            return IconButton(
+              onPressed: () => homeController.toggleGrid(),
+              icon: Icon(
+                homeController.gridCount.value == 2
+                    ? Icons.grid_view
+                    : homeController.gridCount.value == 3
+                        ? Icons.grid_3x3
+                        : Icons.view_module,
+                size: 26,
+              ),
+              tooltip: "تغير شكل الأيقونات",
+            );
+          })
+        ],
       ),
-      body: ListView(
-        padding: EdgeInsets.all(15),
-        children: [
-          GridView(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 15,
-              mainAxisSpacing: 15,
-            ),
-            children: [
-              CardAdminHome(
+      body: Obx(() {
+        return ListView(
+          padding: const EdgeInsets.all(15),
+          children: [
+            GridView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: homeController.gridCount.value,
+                crossAxisSpacing: 15,
+                mainAxisSpacing: 15,
+              ),
+              children: [
+                CardAdminHome(
                   title: 'الاصنــــــاف',
                   imageUrl: 'assets/image/category.jpeg',
                   navigartTo: () {
                     homeController.goToCategoriesPage();
-                  }),
-              CardAdminHome(
-                title: 'الاشعـــــرات',
-                imageUrl: 'assets/image/notifaction.png',
-                navigartTo: () {
-                  homeController.goToNotificationsPage();
-                },
-              ),
-              CardAdminHome(
-                  title: 'message', imageUrl: 'assets/image/message.png'),
-              CardAdminHome(title: 'order', imageUrl: 'assets/image/order.png'),
-              CardAdminHome(
-                title: 'المنتـــاجات',
-                imageUrl: 'assets/image/product.png',
-                navigartTo: () {
-                  homeController.goToItemsPage();
-                },
-              ),
-              CardAdminHome(
-                title: 'الطيــــارين',
-                imageUrl: 'assets/image/delivery.png',
-              ),
-            ],
-          ),
-        ],
-      ),
+                  },
+                ),
+                CardAdminHome(
+                  title: 'المنتـــاجات',
+                  imageUrl: 'assets/image/product.png',
+                  navigartTo: () {
+                    homeController.goToItemsPage();
+                  },
+                ),
+                CardAdminHome(
+                  title: 'الاشعـــــرات',
+                  imageUrl: 'assets/image/notifaction.png',
+                  navigartTo: () {
+                    homeController.goToNotificationsPage();
+                  },
+                ),
+                CardAdminHome(
+                  title: 'الرســــائل',
+                  imageUrl: 'assets/image/message.png',
+                ),
+                CardAdminHome(
+                  title: 'order',
+                  imageUrl: 'assets/image/order.png',
+                ),
+                CardAdminHome(
+                  title: 'الطيــــارين',
+                  imageUrl: 'assets/image/delivery.png',
+                ),
+              ],
+            ),
+          ],
+        );
+      }),
     );
   }
 }
