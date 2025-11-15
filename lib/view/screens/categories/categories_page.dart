@@ -20,7 +20,7 @@ class CategoriesPage extends StatelessWidget {
       {'name': 'Beauty', 'icon': 'assets/svg/dress.svg'},
     ];
 
-    var controller = Get.put(ViewController());
+    var controller = Get.put(ViewCategoryController());
 
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,

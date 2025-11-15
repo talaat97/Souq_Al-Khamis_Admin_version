@@ -14,7 +14,7 @@ class Applink {
   static const String approveOrder = '$server/orders/approve.php';
   // static const String doneOrder = '$server/orders/done.php';
   //============================================ items ============================================//
-  static const String items = '$server/items/items.php';
+  static const String itemsView = '$server/items/view.php';
   //============================================ categories ============================================//
   static const String categoriesView = '$server/categories/view.php';
   static const String categoriesAdd = '$server/categories/add.php';
