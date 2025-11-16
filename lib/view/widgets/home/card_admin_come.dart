@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:souq_al_khamis_admin_version/core/constant/colors.dart'
-    show AppColor;
+import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 
 class CardAdminHome extends StatelessWidget {
   final String title;
