@@ -10,14 +10,14 @@ import '../../../data/datacorse/static/model/order_model.dart';
 
 class AcceptedThemeCard extends StatelessWidget {
   final OrderModel orderModel;
-  final StatusRequest statusRequest;
+  //final StatusRequest statusRequest;
   final Color color;
   final void Function()? orderArchive;
   final void Function()? goToOrderDetails;
   const AcceptedThemeCard({
     super.key,
     required this.orderModel,
-    required this.statusRequest,
+  //  required this.statusRequest,
     required this.color,
     this.orderArchive,
     required this.goToOrderDetails,
@@ -26,7 +26,7 @@ class AcceptedThemeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HandlingDataView(
-        statusRequest: statusRequest,
+        statusRequest: StatusRequest.success,
         widget: Card(
           color: color,
           margin: const EdgeInsets.all(10),

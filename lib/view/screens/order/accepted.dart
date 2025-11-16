@@ -5,7 +5,7 @@ import 'package:souq_al_khamis_admin_version/core/class/handling_data.dart';
 import 'package:souq_al_khamis_admin_version/core/function/order_functions.dart';
 import 'package:souq_al_khamis_admin_version/view/widgets/order/accepted_card_theme.dart';
 
-import '../../../controller/order/acceptedController.dart';
+import '../../../controller/order/accepted_controller.dart';
 
 class AcceptedOrders extends StatelessWidget {
   const AcceptedOrders({super.key});
@@ -19,7 +19,7 @@ class AcceptedOrders extends StatelessWidget {
         widget: ListView.builder(
           itemCount: pageController.acceptedOrders.length,
           itemBuilder: (context, index) => AcceptedThemeCard(
-            statusRequest: pageController.statusRequest,
+          
             color: colorCard(pageController.acceptedOrders[index].orderStatus!),
             orderModel: pageController.acceptedOrders[index],
             goToOrderDetails: () {

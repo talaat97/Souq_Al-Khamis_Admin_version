@@ -5,7 +5,7 @@ import 'package:souq_al_khamis_admin_version/core/class/handling_data.dart';
 
 import 'package:souq_al_khamis_admin_version/core/function/order_functions.dart';
 
-import '../../../controller/order/archivedController.dart';
+import '../../../controller/order/archived_controller.dart';
 import '../../widgets/order/archive_card_theme.dart';
 
 class ArchiveOrders extends StatelessWidget {

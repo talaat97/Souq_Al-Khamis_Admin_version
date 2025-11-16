@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 
 import '../../core/class/status_request.dart';
 
-import '../../core/constant/routs_page.dart';
 import '../../core/function/handling_data_controller.dart';
 
 import '../../core/services/services.dart';
@@ -36,9 +35,9 @@ class Archivedcontroller extends GetxController {
   }
 
   goToOrderDetails(OrderModel orderModel) {
-    Get.toNamed(AppRoute.orderDeitails, arguments: {
-      'orderModel': orderModel,
-    });
+    // Get.toNamed(AppRoute.orderDeitails, arguments: {
+    //   'orderModel': orderModel,
+    // });
   }
 
   @override

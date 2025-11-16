@@ -42,9 +42,9 @@ class Orderdetailscontroller extends GetxController {
   }
 
   void goToOrderDetails(OrderModel orderModel) {
-    Get.toNamed(AppRoute.orderDeitails, arguments: {
-      'orderModel': orderModel,
-    });
+    // Get.toNamed(AppRoute.orderDeitails, arguments: {
+    //   'orderModel': orderModel,
+    // });
   }
 
   @override

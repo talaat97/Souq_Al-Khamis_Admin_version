@@ -37,13 +37,14 @@ class HomeGrid extends StatelessWidget {
                 imageUrl: 'assets/image/notifaction.png',
                 navigartTo: controller.goToNotificationsPage,
               ),
-              const CardAdminHome(
-                title: 'الرســــائل',
-                imageUrl: 'assets/image/message.png',
+              CardAdminHome(
+                title: 'الطلبــــات',
+                imageUrl: 'assets/image/order.png',
+                navigartTo: controller.goToViewOrdersPage,
               ),
               const CardAdminHome(
-                title: 'order',
-                imageUrl: 'assets/image/order.png',
+                title: 'message',
+                imageUrl: 'assets/image/message.png',
               ),
               const CardAdminHome(
                 title: 'الطيــــارين',
