@@ -93,7 +93,7 @@ class OrderDetails extends StatelessWidget {
                         const TextStyle(color: AppColor.black, fontSize: 15),
                   ),
                 if (pageController.orderModel.orderType == '1')
-                  Container(
+                  SizedBox(
                     height: 350,
                     child: GoogleMap(
                       mapType: MapType.normal,

@@ -10,7 +10,7 @@ import 'package:souq_al_khamis_admin_version/view/screens/items/add_Item.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/items/items_page.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/notification/notification_page.dart';
 
-import 'view/screens/order/view._orders.dart';
+import 'view/screens/order/view.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(name: "/", page: () => Login(), middlewares: [
