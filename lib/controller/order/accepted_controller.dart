@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/controller/order/archivedController.dart';
+import 'package:souq_al_khamis_admin_version/controller/order/archived_controller.dart';
 
 import '../../core/class/status_request.dart';
 
@@ -37,9 +37,9 @@ class AcceptedController extends GetxController {
   }
 
   goToOrderDetails(OrderModel orderModel) {
-    Get.toNamed(AppRoute.orderDeitails, arguments: {
-      'orderModel': orderModel,
-    });
+    // Get.toNamed(AppRoute.orderDeitails, arguments: {
+    //   'orderModel': orderModel,
+    // });
   }
 
   @override

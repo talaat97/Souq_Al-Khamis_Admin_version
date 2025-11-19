@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
+
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 
 printOrderType(String val) {
@@ -13,14 +14,36 @@ printDeliverPriceOrder(String val) {
   return val == '0' ? 'no delivey price' : val;
 }
 
-colorCard(String val) {
-  if (val == '2') {
-    return AppColor.yellowColor;
+Color getOrderColor(String status) {
+  switch (status) {
+    case '0':
+      return OrderStatusColor.waiting;
+    case '1':
+      return OrderStatusColor.approve;
+    case '2':
+      return OrderStatusColor.preparing;
+    case '3':
+      return OrderStatusColor.shipping;
+    case '4':
+      return OrderStatusColor.archived;
+    default:
+      return OrderStatusColor.waiting;
   }
-  if (val == '3') {
-    return AppColor.greenColor;
-  }
-  if (val == '4') {
-    return Colors.grey;
+}
+
+String getOrderStatusText(String status) {
+  switch (status) {
+    case '0':
+      return "Approve Order";
+    case '1':
+      return "Start Preparing";
+    case '2':
+      return "Mark as Shipping";
+    case '3':
+      return "Complete Order";
+    case '4':
+      return "Archived";
+    default:
+      return "";
   }
 }

@@ -5,8 +5,8 @@ class AppRoute {
   //HOME
   static const String home = "/home";
   //Order
-  static const String checkout = "/checkout";
-  static const String orderDeitails = "/orderDeitails";
+  static const String viewOrders = "/allOrder";
+//  static const String orderDeitails = "/orderDeitails";
   //Setting
   static const String setting = "/setting";
   //category

@@ -10,6 +10,8 @@ import 'package:souq_al_khamis_admin_version/view/screens/items/add_Item.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/items/items_page.dart';
 import 'package:souq_al_khamis_admin_version/view/screens/notification/notification_page.dart';
 
+import 'view/screens/order/view.dart';
+
 List<GetPage<dynamic>>? routes = [
   GetPage(name: "/", page: () => Login(), middlewares: [
     Mymiddleware(),
@@ -26,4 +28,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.addItem, page: () => const AddItemPage()),
   GetPage(
       name: AppRoute.notifcationsPage, page: () => const NotificationPage()),
+  ////////////////////////////////// Order //////////////////////
+  GetPage(name: AppRoute.viewOrders, page: () => const ViewOrders()),
 ];

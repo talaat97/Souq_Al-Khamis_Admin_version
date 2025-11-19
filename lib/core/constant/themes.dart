@@ -2,48 +2,75 @@ import 'package:flutter/material.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 
 ThemeData themeEnglish = ThemeData(
-  scaffoldBackgroundColor: AppColor.backgroundColor, // #FFF8F4
+  scaffoldBackgroundColor: AppColor.neutralBG,
   fontFamily: 'Lato',
-  primaryColor: AppColor.primaryColor, // #DB6719
-  secondaryHeaderColor: AppColor.secondaryColor, // #8B401D
+  primaryColor: AppColor.primaryColor,
+  secondaryHeaderColor: AppColor.secondaryColor,
+
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: AppColor.primaryColor, // #DB6719
-    foregroundColor: AppColor.white, // Contrast for FAB icon
+    backgroundColor: AppColor.primaryColor,
+    foregroundColor: AppColor.white,
   ),
+
   appBarTheme: const AppBarTheme(
-    color: AppColor.primaryColor, // Use primary color for AppBar
-    titleTextStyle:
-        TextStyle(color: AppColor.white, fontSize: 25, fontFamily: 'Lato'),
+    color: AppColor.primaryColor,
     centerTitle: true,
     elevation: 5,
+    titleTextStyle: TextStyle(
+      color: AppColor.white,
+      fontSize: 25,
+      fontFamily: 'Lato',
+    ),
     iconTheme: IconThemeData(color: AppColor.white),
   ),
+
+  // ⭐ Updated TabBarTheme with new palette
+  tabBarTheme: const TabBarThemeData(
+    labelColor: AppColor.primaryColor,          // Selected
+    unselectedLabelColor: AppColor.neutralMedium,
+    indicatorColor: AppColor.primaryColor,      // Underline
+    labelStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
+    unselectedLabelStyle: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+    ),
+  ),
+
   textTheme: const TextTheme(
     titleLarge: TextStyle(
-        fontSize: 30, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: AppColor.textPrimary),
     headlineLarge: TextStyle(
-        fontSize: 20, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: AppColor.textPrimary),
     bodyLarge: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
-        height: 2,
+        height: 1.6,
         color: AppColor.textSecondary),
     labelMedium: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.normal,
-        color: AppColor.tertiaryColor), // Accent color
+        color: AppColor.accentOlive),
   ),
+
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: AppColor.primaryColor,
-    secondary: AppColor.tertiaryColor,
+    secondary: AppColor.accentOlive,
   ),
+
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: AppColor.primaryColor, // Main button color
-      foregroundColor: AppColor.white, // Text/Icon color
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      backgroundColor: AppColor.primaryColor,
+      foregroundColor: AppColor.white,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(12),
       ),
       textStyle: const TextStyle(
         fontSize: 16,
@@ -53,36 +80,61 @@ ThemeData themeEnglish = ThemeData(
   ),
 );
 
+
 ThemeData themeArabic = ThemeData(
   fontFamily: 'Rubik',
-  scaffoldBackgroundColor: AppColor.backgroundColor, // Match English theme
+  scaffoldBackgroundColor: AppColor.neutralBG,
   primaryColor: AppColor.primaryColor,
   secondaryHeaderColor: AppColor.secondaryColor,
+
   appBarTheme: const AppBarTheme(
     color: AppColor.primaryColor,
-    titleTextStyle:
-        TextStyle(color: AppColor.white, fontSize: 35, fontFamily: 'Rubik'),
     centerTitle: true,
     elevation: 5,
+    titleTextStyle: TextStyle(
+      color: AppColor.white,
+      fontSize: 30,
+      fontFamily: 'Rubik',
+    ),
     iconTheme: IconThemeData(color: AppColor.white),
   ),
+
+  tabBarTheme: const TabBarThemeData(
+    labelColor: AppColor.primaryColor,
+    unselectedLabelColor: AppColor.neutralMedium,
+    indicatorColor: AppColor.primaryColor,
+    labelStyle: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Rubik',
+    ),
+    unselectedLabelStyle: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.normal,
+      fontFamily: 'Rubik',
+    ),
+  ),
+
   textTheme: const TextTheme(
     titleLarge: TextStyle(
-        fontSize: 30, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: AppColor.textPrimary),
     headlineLarge: TextStyle(
-        fontSize: 20, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: AppColor.textPrimary),
     bodyLarge: TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.normal,
-        height: 2,
+        height: 1.6,
         color: AppColor.textSecondary),
     labelMedium: TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.normal,
-        color: AppColor.tertiaryColor),
+        color: AppColor.accentOlive),
   ),
+
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: AppColor.primaryColor,
-    secondary: AppColor.tertiaryColor,
+    secondary: AppColor.accentOlive,
   ),
 );

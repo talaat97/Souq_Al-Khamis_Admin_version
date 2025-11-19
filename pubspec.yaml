@@ -83,7 +83,7 @@ dependencies:
   googleapis:
   flutter_ringtone_player: ^4.0.0+3
   rating_dialog: ^2.0.4
-  drop_down_list: 
+  velocity_x: ^4.3.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -5,8 +5,8 @@ import 'package:souq_al_khamis_admin_version/view/widgets/order/accepted_card_th
 
 final orders = dummyOrderList;
 
-class Archive extends StatelessWidget {
-  const Archive({super.key});
+class Approved extends StatelessWidget {
+  const Approved({super.key});
 
   @override
   Widget build(BuildContext context) {

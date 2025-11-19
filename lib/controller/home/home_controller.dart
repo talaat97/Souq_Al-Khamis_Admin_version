@@ -18,8 +18,8 @@ class HomeController extends GetxController {
     Get.toNamed(AppRoute.itemsPage);
   }
 
-  goToOrdersPage() {
-    Get.toNamed(AppRoute.ordersPage);
+  goToViewOrdersPage() {
+    Get.toNamed(AppRoute.viewOrders);
   }
 
   goToNotificationsPage() {

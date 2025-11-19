@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../controller/order/orderDetailsController.dart';
+import '../../../controller/order/order_details_controller.dart';
 import '../../../core/class/handling_data.dart';
 import '../../../core/constant/colors.dart';
 import '../../widgets/order/details_text_table_style.dart';
@@ -93,7 +93,7 @@ class OrderDetails extends StatelessWidget {
                         const TextStyle(color: AppColor.black, fontSize: 15),
                   ),
                 if (pageController.orderModel.orderType == '1')
-                  Container(
+                  SizedBox(
                     height: 350,
                     child: GoogleMap(
                       mapType: MapType.normal,

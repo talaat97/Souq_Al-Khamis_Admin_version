@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/controller/order/acceptedController.dart';
+import 'package:souq_al_khamis_admin_version/controller/order/accepted_controller.dart';
 
 import '../../core/class/status_request.dart';
 
-import '../../core/constant/routs_page.dart';
 import '../../core/function/handling_data_controller.dart';
 
 import '../../core/services/services.dart';
@@ -37,9 +36,9 @@ class HomeController extends GetxController {
   }
 
   void goToOrderDetails(OrderModel orderModel) {
-    Get.toNamed(AppRoute.orderDeitails, arguments: {
-      'orderModel': orderModel,
-    });
+    // Get.toNamed(AppRoute.orderDeitails, arguments: {
+    //   'orderModel': orderModel,
+    // });
   }
 
   orderApprove(OrderModel orderModel) async {
