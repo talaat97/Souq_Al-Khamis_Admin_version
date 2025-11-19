@@ -25,10 +25,6 @@ class ViewController extends GetxController {
     update();
     var response = await categoriesData.view();
     statusRequest = handlingData(response);
-    log("==============================");
-    log(statusRequest.toString());
-    log("==============================");
-
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         List responseData = response['data'];
