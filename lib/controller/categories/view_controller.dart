@@ -8,7 +8,7 @@ import 'package:souq_al_khamis_admin_version/core/function/handling_data_control
 import 'package:souq_al_khamis_admin_version/data/datacorse/remote/categories/categories_data.dart';
 import 'package:souq_al_khamis_admin_version/data/datacorse/static/model/category_model.dart';
 
-class ViewController extends GetxController {
+class ViewCategoryController extends GetxController {
   CategoriesData categoriesData = CategoriesData(Get.find());
   StatusRequest statusRequest = StatusRequest.loading;
   List<CategoryModel> categories = [];

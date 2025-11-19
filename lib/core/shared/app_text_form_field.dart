@@ -15,6 +15,8 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final int? maxLines;
+  final TextInputType? keyboardType;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -28,11 +30,15 @@ class AppTextFormField extends StatelessWidget {
     this.backgroundColor,
     this.controller,
     required this.validator,
+    this.maxLines,
+    this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
+      maxLines: maxLines,
       controller: controller,
       decoration: InputDecoration(
         contentPadding: contentPadding ??
