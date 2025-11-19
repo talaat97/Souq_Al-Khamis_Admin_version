@@ -1,13 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
+import 'package:souq_al_khamis_admin_version/core/function/upload_file.dart';
 
 class AddCategoryController extends GetxController {
-  TextEditingController titleController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
-  TextEditingController arTitleController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
+  TextEditingController categoryNameController = TextEditingController();
+  TextEditingController categoryNameArabicController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  File? file;
 
   void addCategory() {
     if (formKey.currentState!.validate()) {
@@ -22,5 +24,10 @@ class AddCategoryController extends GetxController {
 
   void goToViewCategories() {
     Get.offAllNamed(AppRoute.categoriesPage);
+  }
+
+  void uploadFile() async {
+    file = await fileUploadGallary();
+    update();
   }
 }
