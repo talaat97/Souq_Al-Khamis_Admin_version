@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import 'package:souq_al_khamis_admin_version/core/shared/app_text_form_field.dart';
-
 import '../../../controller/categories/add_controller.dart';
-import '../../../core/constant/colors.dart';
 
 class AddCategory extends StatelessWidget {
   const AddCategory({super.key});

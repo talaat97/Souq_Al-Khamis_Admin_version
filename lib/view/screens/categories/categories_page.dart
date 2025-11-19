@@ -12,14 +12,14 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ViewController());
+    var controller = Get.put(ViewCategoryController());
 
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
         title: const Text('Categories'),
       ),
-      body: GetBuilder<ViewController>(
+      body: GetBuilder<ViewCategoryController>(
         builder: (_) => HandlingDataView(
           statusRequest: controller.statusRequest,
           widget: Padding(
