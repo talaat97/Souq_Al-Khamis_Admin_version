@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 
 import 'package:souq_al_khamis_admin_version/core/class/status_request.dart';

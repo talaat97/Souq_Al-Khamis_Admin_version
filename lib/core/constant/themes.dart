@@ -25,10 +25,9 @@ ThemeData themeEnglish = ThemeData(
   ),
 
   // ⭐ Updated TabBarTheme with new palette
-  tabBarTheme: const TabBarThemeData(
-    labelColor: AppColor.primaryColor,          // Selected
+  tabBarTheme: const TabBarThemeData( // Selected
     unselectedLabelColor: AppColor.neutralMedium,
-    indicatorColor: AppColor.primaryColor,      // Underline
+    indicatorColor: AppColor.surfaceColor, // Underline
     labelStyle: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.bold,
@@ -41,13 +40,9 @@ ThemeData themeEnglish = ThemeData(
 
   textTheme: const TextTheme(
     titleLarge: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-        color: AppColor.textPrimary),
+        fontSize: 30, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
     headlineLarge: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: AppColor.textPrimary),
+        fontSize: 20, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
     bodyLarge: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
@@ -80,13 +75,11 @@ ThemeData themeEnglish = ThemeData(
   ),
 );
 
-
 ThemeData themeArabic = ThemeData(
   fontFamily: 'Rubik',
   scaffoldBackgroundColor: AppColor.neutralBG,
   primaryColor: AppColor.primaryColor,
   secondaryHeaderColor: AppColor.secondaryColor,
-
   appBarTheme: const AppBarTheme(
     color: AppColor.primaryColor,
     centerTitle: true,
@@ -98,7 +91,6 @@ ThemeData themeArabic = ThemeData(
     ),
     iconTheme: IconThemeData(color: AppColor.white),
   ),
-
   tabBarTheme: const TabBarThemeData(
     labelColor: AppColor.primaryColor,
     unselectedLabelColor: AppColor.neutralMedium,
@@ -114,25 +106,15 @@ ThemeData themeArabic = ThemeData(
       fontFamily: 'Rubik',
     ),
   ),
-
   textTheme: const TextTheme(
     titleLarge: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-        color: AppColor.textPrimary),
+        fontSize: 30, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
     headlineLarge: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: AppColor.textPrimary),
-    bodyLarge: TextStyle(
-        fontSize: 20,
-        height: 1.6,
-        color: AppColor.textSecondary),
-    labelMedium: TextStyle(
-        fontSize: 14,
-        color: AppColor.accentOlive),
+        fontSize: 20, fontWeight: FontWeight.bold, color: AppColor.textPrimary),
+    bodyLarge:
+        TextStyle(fontSize: 20, height: 1.6, color: AppColor.textSecondary),
+    labelMedium: TextStyle(fontSize: 14, color: AppColor.accentOlive),
   ),
-
   colorScheme: ColorScheme.fromSwatch().copyWith(
     primary: AppColor.primaryColor,
     secondary: AppColor.accentOlive,
