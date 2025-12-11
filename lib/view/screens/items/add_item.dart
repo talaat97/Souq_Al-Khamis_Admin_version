@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:souq_al_khamis_admin_version/core/shared/app_text_form_field.dart';
 import '../../../core/constant/colors.dart';
-import '../../../core/constant/styles.dart';
+import '../../../core/function/show_image_picker_sheet.dart';
 
 class AddItemPage extends StatefulWidget {
   const AddItemPage({super.key});
@@ -28,6 +28,7 @@ class _AddItemPageState extends State<AddItemPage> {
             final fields = [
               /// Item Name (EN)
               AppTextFormField(
+                backgroundColor: AppColor.surfaceColor,
                 hintText: 'Item Name',
                 validator: (value) => value == null || value.isEmpty
                     ? 'Please enter item name'
@@ -36,6 +37,7 @@ class _AddItemPageState extends State<AddItemPage> {
 
               /// Item Name (AR)
               AppTextFormField(
+                backgroundColor: AppColor.surfaceColor,
                 hintText: 'Item Name Arabic',
                 validator: (value) => value == null || value.isEmpty
                     ? 'Please enter Arabic item name'
@@ -44,6 +46,7 @@ class _AddItemPageState extends State<AddItemPage> {
 
               /// Description
               AppTextFormField(
+                backgroundColor: AppColor.surfaceColor,
                 hintText: 'Description',
                 maxLines: 3,
                 validator: (value) => value == null || value.isEmpty
@@ -53,6 +56,7 @@ class _AddItemPageState extends State<AddItemPage> {
 
               /// Arabic Description
               AppTextFormField(
+                backgroundColor: AppColor.surfaceColor,
                 hintText: 'Description Arabic',
                 maxLines: 3,
                 validator: (value) => value == null || value.isEmpty
@@ -62,6 +66,7 @@ class _AddItemPageState extends State<AddItemPage> {
 
               /// COUNT FIELD
               AppTextFormField(
+                backgroundColor: AppColor.surfaceColor,
                 hintText: 'Count',
                 keyboardType: TextInputType.number,
                 validator: (value) => value == null || value.isEmpty
@@ -98,7 +103,7 @@ class _AddItemPageState extends State<AddItemPage> {
               /// IMAGE UPLOAD
               GestureDetector(
                 onTap: () {
-                  _showImagePickerSheet(context); // <-- BottomSheet function
+                  showImagePickerSheet(context); // <-- BottomSheet function
                 },
                 child: Container(
                   height: 250,
@@ -137,92 +142,4 @@ class _AddItemPageState extends State<AddItemPage> {
       ),
     );
   }
-}
-
-void _showImagePickerSheet(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    backgroundColor: AppColor.surfaceColor,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
-    ),
-    builder: (_) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Top handle
-            Container(
-              height: 5,
-              width: 55,
-              decoration: BoxDecoration(
-                color: AppColor.grey600,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Sheet Title
-            Text(
-              'Choose Image Source',
-              style: TextStyles.font18DarkBlueBold.copyWith(
-                color: AppColor.textPrimary,
-              ),
-            ),
-
-            const SizedBox(height: 25),
-
-            /// CAMERA OPTION
-            ListTile(
-              leading: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AppColor.primaryColor.withOpacity(0.15),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.camera_alt,
-                    color: AppColor.primaryColor, size: 28),
-              ),
-              title: Text(
-                'Take from Camera',
-                style: TextStyles.font15DarkBlueMedium.copyWith(
-                  color: AppColor.textPrimary,
-                ),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                //TODO _pickFromCamera();
-              },
-            ),
-
-            /// GALLERY OPTION
-            ListTile(
-              leading: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AppColor.tertiaryColor.withOpacity(0.20),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.photo_library,
-                    color: AppColor.tertiaryColor, size: 28),
-              ),
-              title: Text(
-                'Pick from Gallery',
-                style: TextStyles.font15DarkBlueMedium.copyWith(
-                  color: AppColor.textPrimary,
-                ),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                //TODO _pickFromGallery();
-              },
-            ),
-
-            const SizedBox(height: 15),
-          ],
-        ),
-      );
-    },
-  );
 }

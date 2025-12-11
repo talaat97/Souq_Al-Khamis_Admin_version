@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import '../../core/class/status_request.dart';
-import '../../core/constant/routs_page.dart';
 import '../../core/services/services.dart';
 import '../../data/datacorse/static/model/orderDetailsModel.dart';
 import '../../data/datacorse/static/model/order_model.dart';
@@ -42,9 +40,9 @@ class Orderdetailscontroller extends GetxController {
   }
 
   void goToOrderDetails(OrderModel orderModel) {
-    Get.toNamed(AppRoute.orderDeitails, arguments: {
-      'orderModel': orderModel,
-    });
+    // Get.toNamed(AppRoute.orderDeitails, arguments: {
+    //   'orderModel': orderModel,
+    // });
   }
 
   @override
