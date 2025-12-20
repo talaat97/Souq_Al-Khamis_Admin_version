@@ -3,118 +3,25 @@ import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/font_wight_helper.dart';
 
 class TextStyles {
-  static TextStyle font24BlackBold = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeightHelper.bold,
-    color: AppColor.black,
-  );
-
-  static TextStyle font32BlueBold = TextStyle(
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📝 Heading Styles
+  // ═══════════════════════════════════════════════════════════════════════════
+  static TextStyle font32OrangeBold = TextStyle(
     fontSize: 32,
     fontWeight: FontWeightHelper.bold,
     color: AppColor.primaryColor,
   );
 
-  static TextStyle font13BlueSemiBold = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeightHelper.semiBold,
-    color: AppColor.secondaryColor,
+  static TextStyle font24BlackBold = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColor.textPrimary,
   );
 
-  static TextStyle font13DarkBlueMedium = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeightHelper.medium,
-    color: AppColor.secondaryColor,
-  );
-
-  static TextStyle font13DarkBlueRegular = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.secondaryColor,
-  );
-
-  static TextStyle font24BlueBold = TextStyle(
+  static TextStyle font24OrangeBold = TextStyle(
     fontSize: 24,
     fontWeight: FontWeightHelper.bold,
     color: AppColor.primaryColor,
-  );
-
-  static TextStyle font16WhiteSemiBold = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeightHelper.semiBold,
-    color: AppColor.white,
-  );
-
-  static TextStyle font13GrayRegular = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.grey,
-  );
-
-  static TextStyle font12GrayRegular = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.grey,
-  );
-
-  static TextStyle font12GrayMedium = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeightHelper.medium,
-    color: AppColor.grey,
-  );
-
-  static TextStyle font12DarkBlueRegular = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.secondaryColor,
-  );
-
-  static TextStyle font12BlueRegular = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.primaryColor,
-  );
-
-  static TextStyle font13BlueRegular = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.primaryColor,
-  );
-
-  static TextStyle font14GrayRegular = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.grey,
-  );
-
-  static TextStyle font14LightGrayRegular = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColor.grey,
-  );
-
-  static TextStyle font14DarkBlueMedium = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeightHelper.medium,
-    color: AppColor.secondaryColor,
-  );
-
-  static TextStyle font16WhiteMedium = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeightHelper.medium,
-    color: AppColor.white,
-  );
-
-  static TextStyle font14BlueSemiBold = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeightHelper.semiBold,
-    color: AppColor.primaryColor,
-  );
-
-  static TextStyle font15DarkBlueMedium = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeightHelper.medium,
-    color: AppColor.secondaryColor,
   );
 
   static TextStyle font18DarkBlueBold = TextStyle(
@@ -129,16 +36,121 @@ class TextStyles {
     color: AppColor.secondaryColor,
   );
 
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📄 Body Text Styles
+  // ═══════════════════════════════════════════════════════════════════════════
+  static TextStyle font16WhiteSemiBold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColor.white,
+  );
+
+  static TextStyle font16WhiteMedium = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColor.white,
+  );
+
   static TextStyle font18WhiteMedium = TextStyle(
     fontSize: 18,
     fontWeight: FontWeightHelper.medium,
     color: AppColor.white,
   );
 
+  static TextStyle font15DarkBlueMedium = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColor.secondaryColor,
+  );
+
+  static TextStyle font14DarkBlueMedium = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColor.secondaryColor,
+  );
+
   static TextStyle font14DarkBlueBold = TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.bold,
     color: AppColor.secondaryColor,
+  );
+
+  static TextStyle font14OrangeSemiBold = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColor.primaryColor,
+  );
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔤 Small & Label Text Styles
+  // ═══════════════════════════════════════════════════════════════════════════
+  static TextStyle font13OrangeSemiBold = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightHelper.semiBold,
+    color: AppColor.primaryColor,
+  );
+
+  static TextStyle font13DarkBlueMedium = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColor.secondaryColor,
+  );
+
+  static TextStyle font13DarkBlueRegular = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.secondaryColor,
+  );
+
+  static TextStyle font13OrangeRegular = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.primaryColor,
+  );
+
+  static TextStyle font12OrangeRegular = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.primaryColor,
+  );
+
+  static TextStyle font12DarkBlueRegular = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.secondaryColor,
+  );
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🌫️ Gray/Neutral Text Styles
+  // ═══════════════════════════════════════════════════════════════════════════
+  static TextStyle font14GrayRegular = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.textSecondary,
+  );
+
+  static TextStyle font14LightGrayRegular = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.textTertiary,
+  );
+
+  static TextStyle font13GrayRegular = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.textSecondary,
+  );
+
+  static TextStyle font12GrayRegular = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColor.textSecondary,
+  );
+
+  static TextStyle font12GrayMedium = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.medium,
+    color: AppColor.textSecondary,
   );
 }
 
@@ -160,14 +172,14 @@ class AppBackground extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColor.backgroundColor, // soft base
-            AppColor.surfaceColor, // gentle contrast tone
+            AppColor.backgroundColor, // Warm cream base
+            Color(0xFFFFF6EF), // Slightly peachy tone
           ],
         ),
       ),
       child: Stack(
         children: [
-          // 🔸 subtle orange glow at top-right
+          // 🔸 Subtle orange glow at top-right
           Positioned(
             top: -100,
             right: -60,
@@ -178,7 +190,7 @@ class AppBackground extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColor.primaryColor.withOpacity(0.15),
+                    AppColor.primaryColor.withOpacity(0.12),
                     Colors.transparent,
                   ],
                 ),
@@ -186,7 +198,7 @@ class AppBackground extends StatelessWidget {
             ),
           ),
 
-          // 🟠 subtle gold accent bottom-left
+          // � Subtle teal accent bottom-left
           Positioned(
             bottom: -80,
             left: -50,
@@ -197,7 +209,7 @@ class AppBackground extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColor.tertiaryColor.withOpacity(0.12),
+                    AppColor.accentColor.withOpacity(0.08),
                     Colors.transparent,
                   ],
                 ),
@@ -205,7 +217,7 @@ class AppBackground extends StatelessWidget {
             ),
           ),
 
-          // 🟤 warm brown tint in the background center
+          // � Soft slate blue tint in background center
           Positioned(
             top: MediaQuery.of(context).size.height * 0.3,
             right: MediaQuery.of(context).size.width * 0.3,
@@ -216,7 +228,7 @@ class AppBackground extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColor.secondaryColor.withOpacity(0.05),
+                    AppColor.secondaryColor.withOpacity(0.04),
                     Colors.transparent,
                   ],
                 ),
@@ -224,7 +236,7 @@ class AppBackground extends StatelessWidget {
             ),
           ),
 
-          // 👇 main content
+          // 👇 Main content
           child,
         ],
       ),

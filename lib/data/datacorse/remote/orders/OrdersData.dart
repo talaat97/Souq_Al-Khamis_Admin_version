@@ -1,5 +1,5 @@
 import '../../../../core/class/curd.dart';
-import '../../../../link_api.dart';
+import '../../../../core/constant/links_api.dart';
 
 class OrdersData {
   Crud crud;

@@ -21,7 +21,7 @@ class Crud {
     try {
       if (await checkinternet()) {
         // Set your desired timeout duration
-        const timeoutDuration = Duration(seconds: 5);
+        const timeoutDuration = Duration(seconds: 7);
 
         // Attempt the HTTP request with timeout
         var response = await http
@@ -52,7 +52,7 @@ class Crud {
   Future<Either<StatusRequest, Map>> addRequestWithImageOne(
       url, data, File? image,
       [String? namerequest]) async {
-    namerequest ??= "files";
+    namerequest ??= "file";
 
     var uri = Uri.parse(url);
     var request = http.MultipartRequest("POST", uri);

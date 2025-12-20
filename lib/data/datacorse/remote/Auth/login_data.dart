@@ -1,4 +1,4 @@
-import 'package:souq_al_khamis_admin_version/link_api.dart';
+import 'package:souq_al_khamis_admin_version/core/constant/links_api.dart';
 
 import '../../../../core/class/curd.dart';
 

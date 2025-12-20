@@ -5,19 +5,19 @@ class AppRoute {
   //HOME
   static const String home = "/home";
   //Order
-  static const String viewOrders = "/allOrder";
+  static const String viewOrders = "/all-order";
 //  static const String orderDeitails = "/orderDeitails";
   //Setting
-  static const String setting = "/setting";
+  static const String setting = "/setting-page";
   //category
-  static const String categoriesPage = "/categoriesPage";
-  static const String addCategory = "/addCategory";
+  static const String categoriesPage = "/categories-page";
+  static const String addCategory = "/add-category";
   //
-  static const String deliveriesPage = "/deliveriesPage";
-  static const String ordersPage = "/ordersPage";
-  static const String notifcationsPage = "/notifcationsPage";
+  static const String deliveriesPage = "/deliveries-page";
+  static const String ordersPage = "/orders-page";
+  static const String notificationsPage = "/notifications-page";
 
   //Items
-  static const String addItem = "/addItem";
-  static const String itemsPage = "/itemsPage";
+  static const String addItemPage = "/add-item-page";
+  static const String itemsPage = "/items-page";
 }

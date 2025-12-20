@@ -37,6 +37,6 @@ class ItemsViewController extends GetxController {
   }
 
   void goToAddItemPage() {
-    Get.toNamed(AppRoute.addItem);
+    Get.toNamed(AppRoute.addItemPage);
   }
 }

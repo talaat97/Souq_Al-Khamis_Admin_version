@@ -23,7 +23,7 @@ class HomeController extends GetxController {
   }
 
   goToNotificationsPage() {
-    Get.toNamed(AppRoute.notifcationsPage);
+    Get.toNamed(AppRoute.notificationsPage);
   }
 
   void toggleGrid() {
