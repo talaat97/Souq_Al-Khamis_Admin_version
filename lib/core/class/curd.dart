@@ -50,7 +50,7 @@ class Crud {
   }
 
   Future<Either<StatusRequest, Map>> addRequestWithImageOne(
-      url, data, File? image,
+      String url, Map data, File? file,
       [String? namerequest]) async {
     namerequest ??= "file";
 
@@ -58,12 +58,12 @@ class Crud {
     var request = http.MultipartRequest("POST", uri);
     request.headers.addAll(_myheaders);
 
-    if (image != null) {
-      var length = await image.length();
-      var stream = http.ByteStream(image.openRead());
+    if (file != null) {
+      var length = await file.length();
+      var stream = http.ByteStream(file.openRead());
       stream.cast();
       var multipartFile = http.MultipartFile(namerequest, stream, length,
-          filename: basename(image.path));
+          filename: basename(file.path));
       request.files.add(multipartFile);
     }
 
@@ -77,7 +77,8 @@ class Crud {
     // For get Response Body
     var response = await http.Response.fromStream(myrequest);
     if (response.statusCode == 200 || response.statusCode == 201) {
-      log(response.body);
+      log('Data sent to HTTP request: $data');
+      log('Response from HTTP request: ${response.body}');
       Map responsebody = jsonDecode(response.body);
       return Right(responsebody);
     } else {

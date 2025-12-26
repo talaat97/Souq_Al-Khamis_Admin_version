@@ -11,7 +11,6 @@ class CategoriesPage extends GetView<CategoriesController> {
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
@@ -45,10 +44,11 @@ class CategoriesPage extends GetView<CategoriesController> {
                   child: CategoryCard(
                     category: category,
                     onEdit: () {
-                      // TODO: Edit category action
+                      controller.goToEditCategoryPage(category);
                     },
                     onDelete: () {
-                      // TODO: Delete category action
+                      controller.deleteCategory(
+                          category.categoriesId!, category.categoriesImage!);
                     },
                   ),
                 );

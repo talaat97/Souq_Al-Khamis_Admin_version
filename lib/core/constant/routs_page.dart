@@ -12,6 +12,7 @@ class AppRoute {
   //category
   static const String categoriesPage = "/categories-page";
   static const String addCategory = "/add-category";
+  static const String editCategory = "/edit-category";
   //
   static const String deliveriesPage = "/deliveries-page";
   static const String ordersPage = "/orders-page";

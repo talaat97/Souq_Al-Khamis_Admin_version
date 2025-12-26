@@ -4,6 +4,7 @@ import 'package:souq_al_khamis_admin_version/core/middleware/mymiddleware.dart';
 
 import 'package:souq_al_khamis_admin_version/features/auth/login.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/view/add_category_page.dart';
+import 'package:souq_al_khamis_admin_version/features/categories/view/edit_category_page.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/view/categories_page.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/bindings/categories_binding.dart';
 import 'package:souq_al_khamis_admin_version/features/home/home.dart';
@@ -28,6 +29,10 @@ List<GetPage<dynamic>>? routes = [
       page: () => const CategoriesPage(),
       binding: CategoriesBinding()),
   GetPage(name: AppRoute.addCategory, page: () => const AddCategory()),
+  GetPage(
+      name: AppRoute.editCategory,
+      page: () => const EditCategoryPage(),
+      binding: CategoriesBinding()),
   ////////////////////////////////// items //////////////////////
   GetPage(name: AppRoute.itemsPage, page: () => const ItemsPage()),
   GetPage(name: AppRoute.addItemPage, page: () => const AddItemPage()),

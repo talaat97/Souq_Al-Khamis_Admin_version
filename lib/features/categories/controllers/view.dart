@@ -16,7 +16,7 @@ class CategoriesController extends GetxController {
   final hasMore = true.obs;
 
   int offset = 0;
-  final int limit = 10;
+  int limit = 10;
 
   @override
   void onInit() {
@@ -31,10 +31,16 @@ class CategoriesController extends GetxController {
     repository.clearCache();
 
     try {
-      final data = await repository.fetchCategories(offset);
-      categories.assignAll(data);
-      hasMore.value = data.length == limit;
-      status.value = StatusRequest.success;
+      final result = await repository.fetchCategories(offset, limit);
+
+      result.fold(
+        (failure) => status.value = failure,
+        (data) {
+          categories.assignAll(data);
+          data.length < limit ? hasMore.value = false : hasMore.value = true;
+          status.value = StatusRequest.success;
+        },
+      );
     } catch (e) {
       status.value = e as StatusRequest;
     }
@@ -47,9 +53,11 @@ class CategoriesController extends GetxController {
     offset += limit;
 
     try {
-      final data = await repository.fetchCategories(offset);
-      categories.addAll(data);
-      if (data.length < limit) hasMore.value = false;
+      final result = await repository.fetchCategories(offset, limit);
+      result.fold((failure) => status.value = failure, (data) {
+        categories.addAll(data);
+        data.length < limit ? hasMore.value = false : hasMore.value = true;
+      });
     } finally {
       isLoadingMore.value = false;
     }
@@ -57,6 +65,19 @@ class CategoriesController extends GetxController {
 
   void goToAddCategoryPage() {
     Get.toNamed(AppRoute.addCategory);
+  }
+
+  void goToEditCategoryPage(CategoryModel category) {
+    Get.toNamed(AppRoute.editCategory, arguments: category);
+  }
+
+  deleteCategory(String categoryId, String imageName) async {
+    final response = await repository.deleteCategory(
+        categoryId: categoryId, imageName: imageName);
+
+    response.fold((failure) => status.value = failure, (unit) {
+      fetchInitial();
+    });
   }
 
   void goBack() => Get.back();

@@ -2,10 +2,10 @@ class Applink {
   ///server = 'http://loca/ecommerce/admin' if using emulator
   ///server = 'http://192.168.1.9/ecommerce/admin' if using physical device
   ///192.168.1.5
-  static const String server = 'http://192.168.1.5/ecommerce/admin';
+  static const String server = 'http://192.168.1.2/ecommerce/admin';
   //============================================ image ============================================//
   static const String imagePath =
-      'http://192.168.1.5/ecommerce/upload/categories';
+      'http://192.168.1.2/ecommerce/upload/categories';
   //============================================ Auth ============================================//
   static const String loginLink = '$server/Auth/login.php';
 

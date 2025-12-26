@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:souq_al_khamis_admin_version/features/categories/controllers/add.dart';
+import 'package:souq_al_khamis_admin_version/features/categories/controllers/edit.dart';
 import 'package:souq_al_khamis_admin_version/core/shared/app_text_form_field.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/view/widgets/image_upload_card.dart';
 import '../../../core/constant/colors.dart';
 
-class AddCategory extends GetView<AddCategoryController> {
-  const AddCategory({super.key});
+class EditCategoryPage extends GetView<EditCategoryController> {
+  const EditCategoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add New Category'),
+        title: const Text('Edit Category'),
       ),
       body: Form(
         key: controller.formKey,
@@ -20,7 +20,7 @@ class AddCategory extends GetView<AddCategoryController> {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
           child: Column(
             children: [
-              /// Category Name
+              /// Category Name (English)
               AppTextFormField(
                 controller: controller.categoryNameController,
                 backgroundColor: AppColor.surfaceColor,
@@ -31,7 +31,7 @@ class AddCategory extends GetView<AddCategoryController> {
               ),
               SizedBox(height: 18),
 
-              /// Category Name
+              /// Category Name (Arabic)
               AppTextFormField(
                 controller: controller.categoryNameArabicController,
                 backgroundColor: AppColor.surfaceColor,
@@ -44,13 +44,12 @@ class AddCategory extends GetView<AddCategoryController> {
               SizedBox(height: 18),
 
               /// IMAGE UPLOAD
-              GetBuilder<AddCategoryController>(
+              GetBuilder<EditCategoryController>(
                 builder: (controller) => UploadImageCard(
                   file: controller.file,
                   onUpload: controller.uploadFile,
-                  // onRemove: controller.removeFile,
-                  title: 'Upload Category Image',
-                  subtitle: 'SVG recommended',
+                  title: 'Change Category Image',
+                  subtitle: 'SVG recommended (optional)',
                 ),
               ),
             ],
@@ -67,11 +66,10 @@ class AddCategory extends GetView<AddCategoryController> {
             borderRadius: BorderRadius.circular(8),
           ),
           onPressed: () {
-            controller.addCategory();
-            //  Navigator.pop(context);
+            controller.editCategory();
           },
           child: const Text(
-            'Add Item',
+            'Update Item',
             style: TextStyle(color: AppColor.white),
           ),
         ),

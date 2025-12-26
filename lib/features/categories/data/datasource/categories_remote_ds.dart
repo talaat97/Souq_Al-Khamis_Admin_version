@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:dartz/dartz.dart';
+import 'package:souq_al_khamis_admin_version/core/class/status_request.dart';
+
 import '../../../../core/class/curd.dart';
 import '../../../../core/constant/links_api.dart';
 
@@ -8,43 +11,59 @@ class CategoriesRemoteDataSource {
 
   CategoriesRemoteDataSource(this.crud);
 
-  Future<Map> getCategories({
+  Future<Either<StatusRequest, Map>> getCategories({
     required int offset,
-    int limit = 10,
-  }) async {
-    final response = await crud.postData(
-      Applink.categoriesView,
-      {
-        "offset": offset.toString(),
-        "limit": limit.toString(),
-      },
-    );
-
-    return response.fold((l) => throw l, (r) => r);
+    required int limit,
+  }) {
+    return crud.postData(Applink.categoriesView, {
+      "offset": offset.toString(),
+      "limit": limit.toString(),
+    });
   }
 
-  Future<Map> addCategory({
+  Future<Either<StatusRequest, Map>> addCategory({
     required String name,
     required String nameAr,
     required File file,
-  }) async {
-    try {
-      final response = await crud.addRequestWithImageOne(
-        Applink.categoriesAdd,
-        {
-          "name": name,
-          "name_ar": nameAr,
-        },
-        file,
-        "file",
-      );
+  }) {
+    return crud.addRequestWithImageOne(
+      Applink.categoriesAdd,
+      {
+        "name": name,
+        "nameAr": nameAr,
+      },
+      file,
+      "file",
+    );
+  }
 
-      return response.fold(
-        (l) => throw l,
-        (r) => r,
-      );
-    } catch (e) {
-      rethrow;
-    }
+  Future<Either<StatusRequest, Map>> deleteCategory({
+    required String categoryId,
+    required String imageName,
+  }) {
+    return crud.postData(Applink.categoriesDelete, {
+      "id": categoryId,
+      "imageName": imageName,
+    });
+  }
+
+  Future<Either<StatusRequest, Map>> editCategory({
+    required String categoryId,
+    required String name,
+    required String nameAr,
+    required String imageOld,
+    File? file,
+  }) {
+    return crud.addRequestWithImageOne(
+      Applink.categoriesEdit,
+      {
+        "id": categoryId,
+        "name": name,
+        "nameAr": nameAr,
+        "imageold": imageOld,
+      },
+      file,
+      "file",
+    );
   }
 }
