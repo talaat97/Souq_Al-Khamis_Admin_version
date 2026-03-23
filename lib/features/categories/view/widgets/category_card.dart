@@ -35,7 +35,7 @@ class CategoryCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SvgPicture.network(
-                "${Applink.imagePath}/${category.categoriesImage}",
+                "${Applink.imagePathCategories}/${category.categoriesImage}",
                 height: 65,
                 width: 65,
                 colorFilter: ColorFilter.mode(

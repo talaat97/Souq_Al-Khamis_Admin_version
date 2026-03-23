@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/font_wight_helper.dart';
 
 import '../constant/colors.dart';
+import '../constant/styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
@@ -67,7 +68,7 @@ class AppTextFormField extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.red, width: 1.3),
           borderRadius: BorderRadius.circular(16.0),
         ),
-        //hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
+        hintStyle: hintStyle ?? TextStyles.font14GrayRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
         fillColor: backgroundColor ?? AppColor.grey200,

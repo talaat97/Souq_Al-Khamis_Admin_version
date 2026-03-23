@@ -13,10 +13,6 @@ class NotificationPage extends GetView<NotificationController> {
       appBar: AppBar(
         title: const Text("الاشعـــــرات"),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: const Icon(Icons.arrow_back),
-        ),
       ),
       body: Obx(() {
         return HandlingDataView(

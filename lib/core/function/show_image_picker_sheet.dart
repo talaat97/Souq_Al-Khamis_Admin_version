@@ -56,7 +56,7 @@ void showImagePickerSheet(BuildContext context) {
               ),
               onTap: () {
                 Navigator.pop(context);
-                //TODO _pickFromCamera();
+              
               },
             ),
 
@@ -79,7 +79,7 @@ void showImagePickerSheet(BuildContext context) {
               ),
               onTap: () {
                 Navigator.pop(context);
-                //TODO _pickFromGallery();
+     
               },
             ),
 

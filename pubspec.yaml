@@ -84,6 +84,7 @@ dependencies:
   flutter_ringtone_player: ^4.0.0+3
   rating_dialog: ^2.0.4
   velocity_x: ^4.3.1
+  flutter_image_compress: ^2.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

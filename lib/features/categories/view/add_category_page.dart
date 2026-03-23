@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/controllers/add.dart';
 import 'package:souq_al_khamis_admin_version/core/shared/app_text_form_field.dart';
-import 'package:souq_al_khamis_admin_version/features/categories/view/widgets/image_upload_card.dart';
+import 'package:souq_al_khamis_admin_version/features/categories/view/widgets/image_upload_card_category.dart';
 import '../../../core/constant/colors.dart';
 
 class AddCategory extends GetView<AddCategoryController> {
@@ -45,7 +45,7 @@ class AddCategory extends GetView<AddCategoryController> {
 
               /// IMAGE UPLOAD
               GetBuilder<AddCategoryController>(
-                builder: (controller) => UploadImageCard(
+                builder: (controller) => UploadImageCardCategoty(
                   file: controller.file,
                   onUpload: controller.uploadFile,
                   // onRemove: controller.removeFile,

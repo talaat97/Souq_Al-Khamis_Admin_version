@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/class/status_request.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/routs_page.dart';
+import 'package:souq_al_khamis_admin_version/core/shared/delete_category_dialog.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/data/repositories/categories_repository.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/data/models/category_model.dart';
 
@@ -48,17 +49,24 @@ class CategoriesController extends GetxController {
 
   Future<void> loadMore() async {
     if (!hasMore.value || isLoadingMore.value) return;
-
     isLoadingMore.value = true;
-    offset += limit;
 
     try {
+      offset += limit;
       final result = await repository.fetchCategories(offset, limit);
-      result.fold((failure) => status.value = failure, (data) {
-        categories.addAll(data);
-        data.length < limit ? hasMore.value = false : hasMore.value = true;
-      });
+      result.fold(
+        (failure) {
+          
+        },
+        (data) {
+          offset += limit;
+          categories.addAll(data);
+          data.length < limit ? hasMore.value = false : hasMore.value = true;
+          status.value = StatusRequest.success;
+        },
+      );
     } finally {
+      hasMore.value = false;
       isLoadingMore.value = false;
     }
   }
@@ -72,12 +80,18 @@ class CategoriesController extends GetxController {
   }
 
   deleteCategory(String categoryId, String imageName) async {
-    final response = await repository.deleteCategory(
-        categoryId: categoryId, imageName: imageName);
+    Get.dialog(
+      DeleteCategoryDialog(
+        onConfirm: () async {
+          final response = await repository.deleteCategory(
+              categoryId: categoryId, imageName: imageName);
 
-    response.fold((failure) => status.value = failure, (unit) {
-      fetchInitial();
-    });
+          response.fold((failure) => status.value = failure, (unit) {
+            fetchInitial();
+          });
+        },
+      ),
+    );
   }
 
   void goBack() => Get.back();

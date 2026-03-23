@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/controllers/edit.dart';
 import 'package:souq_al_khamis_admin_version/core/shared/app_text_form_field.dart';
-import 'package:souq_al_khamis_admin_version/features/categories/view/widgets/image_upload_card.dart';
+import 'package:souq_al_khamis_admin_version/features/categories/view/widgets/image_upload_card_category.dart';
 import '../../../core/constant/colors.dart';
 
 class EditCategoryPage extends GetView<EditCategoryController> {
@@ -45,7 +45,7 @@ class EditCategoryPage extends GetView<EditCategoryController> {
 
               /// IMAGE UPLOAD
               GetBuilder<EditCategoryController>(
-                builder: (controller) => UploadImageCard(
+                builder: (controller) => UploadImageCardCategoty(
                   file: controller.file,
                   onUpload: controller.uploadFile,
                   title: 'Change Category Image',

@@ -54,7 +54,7 @@ class AddCategoryController extends GetxController {
   }
 
   void uploadFile() async {
-    file = await fileUploadGallary(true);
+    file = await fileUploadGallery(true);
     update();
   }
 }

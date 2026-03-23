@@ -5,8 +5,7 @@ import '../../core/constant/routs_page.dart';
 class HomeController extends GetxController {
   RxInt gridCount = 2.obs; // default 2 columns
 
-  
-  goToDelivetyPage() {
+  goToDeliveriesPage() {
     Get.toNamed(AppRoute.deliveriesPage);
   }
 

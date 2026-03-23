@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -49,6 +51,7 @@ class CategoriesPage extends GetView<CategoriesController> {
                     onDelete: () {
                       controller.deleteCategory(
                           category.categoriesId!, category.categoriesImage!);
+                      log('message');
                     },
                   ),
                 );

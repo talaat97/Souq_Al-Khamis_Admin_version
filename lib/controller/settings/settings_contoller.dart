@@ -27,11 +27,7 @@ class SettingsContoller extends GetxController {
     } else {
       //NotificationsHelper.firebaseMessaging.subscribeToTopic('admin');
     }
-    print(
-        '////////////////////////////////////////////////////////////////////');
-    print(notifactionSwitch);
-    print(
-        '////////////////////////////////////////////////////////////////////');
+
     update();
   }
 

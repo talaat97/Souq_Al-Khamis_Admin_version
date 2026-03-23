@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 
@@ -106,6 +108,7 @@ class HandlingDataView extends StatelessWidget {
             Icon(
               Icons.inbox_rounded,
               size: 80,
+ 
               color: AppColor.neutralMedium.withOpacity(0.5),
             ),
             const SizedBox(height: 20),

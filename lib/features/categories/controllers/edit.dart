@@ -31,7 +31,8 @@ class EditCategoryController extends GetxController {
     categoryNameArabicController.text = category.categoriesNameAr!;
 
     // Create a File object with the network URL for display purposes
-    var imagePath = '${Applink.imagePath}/${category.categoriesImage!}';
+    var imagePath =
+        '${Applink.imagePathCategories}/${category.categoriesImage!}';
     file = File(imagePath);
     log('Initial image path: ${file!.path}');
   }
@@ -69,7 +70,7 @@ class EditCategoryController extends GetxController {
   }
 
   void uploadFile() async {
-    File? selectedFile = await fileUploadGallary(true);
+    File? selectedFile = await fileUploadGallery(true);
     if (selectedFile != null) {
       file = selectedFile;
       newFile = selectedFile; // Track that user selected a new file

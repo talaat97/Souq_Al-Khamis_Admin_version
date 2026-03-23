@@ -4,21 +4,22 @@ class AppRoute {
   static const String login = "/login";
   //HOME
   static const String home = "/home";
-  //Order
-  static const String viewOrders = "/all-order";
 //  static const String orderDeitails = "/orderDeitails";
   //Setting
   static const String setting = "/setting-page";
-  //category
-  static const String categoriesPage = "/categories-page";
+  // ====================== categories ===================================
+  static const String categoriesPage = '/Categories';
   static const String addCategory = "/add-category";
   static const String editCategory = "/edit-category";
+  // ====================== Order ===================================
+  static const String viewOrders = '/viewOrders';
+  static const String orderDetails = '/orderDetails';
   //
   static const String deliveriesPage = "/deliveries-page";
-  static const String ordersPage = "/orders-page";
   static const String notificationsPage = "/notifications-page";
 
   //Items
   static const String addItemPage = "/add-item-page";
   static const String itemsPage = "/items-page";
+  static const String editItemPage = "/edit-item-page";
 }

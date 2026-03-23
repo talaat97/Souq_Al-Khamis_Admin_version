@@ -46,9 +46,10 @@ class HomeGrid extends StatelessWidget {
                 title: 'message',
                 imageUrl: 'assets/image/message.png',
               ),
-              const CardAdminHome(
+              CardAdminHome(
                 title: 'الطيــــارين',
                 imageUrl: 'assets/image/delivery.png',
+                navigartTo: controller.goToDeliveriesPage,
               ),
             ],
           ),
