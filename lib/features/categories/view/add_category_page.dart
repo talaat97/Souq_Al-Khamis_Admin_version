@@ -12,7 +12,7 @@ class AddCategory extends GetView<AddCategoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add New Category'),
+        title: Text('add_category_title'.tr),
       ),
       body: Form(
         key: controller.formKey,
@@ -24,9 +24,9 @@ class AddCategory extends GetView<AddCategoryController> {
               AppTextFormField(
                 controller: controller.categoryNameController,
                 backgroundColor: AppColor.surfaceColor,
-                hintText: 'Category Name (English)',
+                hintText: 'category_name_en'.tr,
                 validator: (value) => value == null || value.isEmpty
-                    ? 'Please enter category name'
+                    ? 'category_name_required'.tr
                     : null,
               ),
               SizedBox(height: 18),
@@ -35,9 +35,9 @@ class AddCategory extends GetView<AddCategoryController> {
               AppTextFormField(
                 controller: controller.categoryNameArabicController,
                 backgroundColor: AppColor.surfaceColor,
-                hintText: 'Category Name (Arabic)',
+                hintText: 'category_name_ar'.tr,
                 validator: (value) => value == null || value.isEmpty
-                    ? 'Please enter category name'
+                    ? 'category_name_required'.tr
                     : null,
               ),
 
@@ -49,8 +49,8 @@ class AddCategory extends GetView<AddCategoryController> {
                   file: controller.file,
                   onUpload: controller.uploadFile,
                   // onRemove: controller.removeFile,
-                  title: 'Upload Category Image',
-                  subtitle: 'SVG recommended',
+                  title: 'upload_category_image'.tr,
+                  subtitle: 'svg_recommended'.tr,
                 ),
               ),
             ],
@@ -70,9 +70,9 @@ class AddCategory extends GetView<AddCategoryController> {
             controller.addCategory();
             //  Navigator.pop(context);
           },
-          child: const Text(
-            'Add Item',
-            style: TextStyle(color: AppColor.white),
+          child: Text(
+            'add_item_btn'.tr,
+            style: const TextStyle(color: AppColor.white),
           ),
         ),
       ),

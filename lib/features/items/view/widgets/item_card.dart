@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/links_api.dart';
 import 'package:souq_al_khamis_admin_version/features/items/data/models/item_model.dart';
+import 'package:souq_al_khamis_admin_version/core/functions/translate_database.dart';
 
 
 class ItemCard extends StatelessWidget {
@@ -69,7 +70,7 @@ class ItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${item.iteamsName}",
+                      translateDatabase(item.iteamsNameAr, item.iteamsName),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -78,7 +79,7 @@ class ItemCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      "${item.iteamsDec}",
+                      translateDatabase(item.iteamsDecAr, item.iteamsDec),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(

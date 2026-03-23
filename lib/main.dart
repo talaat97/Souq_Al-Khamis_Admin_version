@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/binding/initial_binding.dart';
+import 'package:souq_al_khamis_admin_version/core/controllers/language_controller.dart';
 import 'package:souq_al_khamis_admin_version/core/localization/change_local.dart';
+import 'package:souq_al_khamis_admin_version/core/localization/localization_service.dart';
 import 'package:souq_al_khamis_admin_version/core/services/services.dart';
 import 'package:souq_al_khamis_admin_version/routs.dart';
 
@@ -16,12 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LocaleController localecontroller = Get.put(LocaleController()); //
+    final LocaleController localecontroller = Get.put(LocaleController());
+    final LanguageController langController = Get.put(LanguageController());
+
     return GetMaterialApp(
-      //translations: MyTranslation(),
+      translations: LocalizationService(),
+      locale: langController.savedLocale,
+      fallbackLocale: LocalizationService.fallback,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      // locale: localecontroller.language,
+      title: 'Souq Admin',
       theme: localecontroller.appTheme,
       initialBinding: InitialBindings(),
       getPages: routes,

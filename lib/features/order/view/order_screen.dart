@@ -5,17 +5,45 @@ import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/features/order/controller/order_controller.dart';
 import 'package:souq_al_khamis_admin_version/features/order/view/widgets/order_card.dart';
 
-class OrderScreen extends StatelessWidget {
+class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Get.put(OrderController(Get.find()));
+  State<OrderScreen> createState() => _OrderScreenState();
+}
 
+class _OrderScreenState extends State<OrderScreen> {
+  late OrderController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.put(OrderController(Get.find()));
+    ever(controller.pendingMessage, (String? msg) {
+      if (msg != null && msg.isNotEmpty) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(msg),
+                backgroundColor: Colors.green.shade700,
+                behavior: SnackBarBehavior.floating,
+                duration: const Duration(seconds: 3),
+              ),
+            );
+          }
+          controller.pendingMessage.value = null; // reset after showing
+        });
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'الطلبــــات',
+          'orders'.tr,
           style: Theme.of(context)
               .textTheme
               .titleLarge!
@@ -36,22 +64,35 @@ class OrderScreen extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
                     children: [
-                      _TabChip(label: "All", index: 0, controller: controller),
+                      _TabChip(
+                          label: 'tab_all'.tr,
+                          index: 0,
+                          controller: controller),
                       const SizedBox(width: 8),
                       _TabChip(
-                          label: "Waiting", index: 1, controller: controller),
+                          label: 'tab_waiting'.tr,
+                          index: 1,
+                          controller: controller),
                       const SizedBox(width: 8),
                       _TabChip(
-                          label: "Pending", index: 2, controller: controller),
+                          label: 'tab_pending'.tr,
+                          index: 2,
+                          controller: controller),
                       const SizedBox(width: 8),
                       _TabChip(
-                          label: "Shipping", index: 3, controller: controller),
+                          label: 'tab_shipping'.tr,
+                          index: 3,
+                          controller: controller),
                       const SizedBox(width: 8),
                       _TabChip(
-                          label: "Archived", index: 4, controller: controller),
+                          label: 'tab_archived'.tr,
+                          index: 4,
+                          controller: controller),
                       const SizedBox(width: 8),
                       _TabChip(
-                          label: "Cancelled", index: 5, controller: controller),
+                          label: 'tab_cancelled'.tr,
+                          index: 5,
+                          controller: controller),
                     ],
                   ),
                 ),

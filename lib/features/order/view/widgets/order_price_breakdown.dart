@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OrderPriceBreakdown extends StatelessWidget {
   final double subtotal;
@@ -26,16 +27,16 @@ class OrderPriceBreakdown extends StatelessWidget {
       child: Column(
         children: [
           _BreakdownRow(
-              label: "Subtotal", value: "\$${subtotal.toStringAsFixed(2)}"),
+              label: 'subtotal'.tr, value: "\$${subtotal.toStringAsFixed(2)}"),
           const SizedBox(height: 8),
           _BreakdownRow(
-              label: "Delivery Fee",
+              label: 'delivery_fee'.tr,
               value: "\$${deliveryFee.toStringAsFixed(2)}"),
           if (couponCode != "0") ...[
             const SizedBox(height: 8),
             _BreakdownRow(
-              label: "Coupon ($couponCode)",
-              value: "Applied",
+              label: "${'coupon'.tr} ($couponCode)",
+              value: 'applied'.tr,
               isHighlight: true,
             ),
           ],
@@ -46,8 +47,8 @@ class OrderPriceBreakdown extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("Total",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+              Text('total'.tr,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               Text(
                 "\$${total.toStringAsFixed(2)}",
                 style: TextStyle(

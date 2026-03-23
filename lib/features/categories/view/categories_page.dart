@@ -16,7 +16,7 @@ class CategoriesPage extends GetView<CategoriesController> {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
-        title: const Text('Categories'),
+        title: Text('categories_title'.tr),
       ),
       body: Obx(() {
         return HandlingDataView(

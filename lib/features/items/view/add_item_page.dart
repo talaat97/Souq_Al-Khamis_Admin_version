@@ -12,7 +12,7 @@ class AddItemPage extends GetView<AddItemsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add New Item'),
+        title: Text('add_item_title'.tr),
       ),
       body: Form(
         key: controller.formKey,
@@ -23,9 +23,9 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemNameController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Item Name (English)',
+              hintText: 'item_name_en'.tr,
               validator: (value) => value == null || value.isEmpty
-                  ? 'Please enter item name'
+                  ? 'item_name_required'.tr
                   : null,
             ),
             SizedBox(height: 18),
@@ -34,9 +34,9 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemNameArabicController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Item Name (Arabic)',
+              hintText: 'item_name_ar'.tr,
               validator: (value) => value == null || value.isEmpty
-                  ? 'Please enter item name in Arabic'
+                  ? 'item_name_ar_required'.tr
                   : null,
             ),
             SizedBox(height: 18),
@@ -45,10 +45,10 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemDescriptionController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Description (English)',
+              hintText: 'item_description_en'.tr,
               maxLines: 3,
               validator: (value) => value == null || value.isEmpty
-                  ? 'Please enter description'
+                  ? 'item_description_required'.tr
                   : null,
             ),
             SizedBox(height: 18),
@@ -57,10 +57,10 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemDescriptionArabicController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Description (Arabic)',
+              hintText: 'item_description_ar'.tr,
               maxLines: 3,
               validator: (value) => value == null || value.isEmpty
-                  ? 'Please enter description in Arabic'
+                  ? 'item_description_ar_required'.tr
                   : null,
             ),
             SizedBox(height: 18),
@@ -69,10 +69,11 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemCountController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Count',
+              hintText: 'item_count'.tr,
               keyboardType: TextInputType.number,
-              validator: (value) =>
-                  value == null || value.isEmpty ? 'Please enter count' : null,
+              validator: (value) => value == null || value.isEmpty
+                  ? 'item_count_required'.tr
+                  : null,
             ),
             SizedBox(height: 18),
 
@@ -80,10 +81,11 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemPriceController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Price',
+              hintText: 'item_price'.tr,
               keyboardType: TextInputType.number,
-              validator: (value) =>
-                  value == null || value.isEmpty ? 'Please enter price' : null,
+              validator: (value) => value == null || value.isEmpty
+                  ? 'item_price_required'.tr
+                  : null,
             ),
             SizedBox(height: 18),
 
@@ -91,13 +93,13 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemDiscountController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Discount (%) - Optional',
+              hintText: 'item_discount'.tr,
               keyboardType: TextInputType.number,
               validator: (value) {
                 if (value == null || value.isEmpty) return null;
                 final discount = int.tryParse(value);
                 if (discount == null || discount < 0 || discount > 100) {
-                  return 'Discount must be between 0 and 100';
+                  return 'item_discount_invalid'.tr;
                 }
                 return null;
               },
@@ -108,10 +110,10 @@ class AddItemPage extends GetView<AddItemsController> {
             AppTextFormField(
               controller: controller.itemCategoryIdController,
               backgroundColor: AppColor.surfaceColor,
-              hintText: 'Category ID',
+              hintText: 'item_category_id'.tr,
               keyboardType: TextInputType.number,
               validator: (value) => value == null || value.isEmpty
-                  ? 'Please enter category ID'
+                  ? 'item_category_required'.tr
                   : null,
             ),
             SizedBox(height: 18),
@@ -129,7 +131,7 @@ class AddItemPage extends GetView<AddItemsController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Available',
+                      'item_available'.tr,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -172,9 +174,9 @@ class AddItemPage extends GetView<AddItemsController> {
           onPressed: () {
             controller.addItem();
           },
-          child: const Text(
-            'Add Item',
-            style: TextStyle(
+          child: Text(
+            'add_item_btn'.tr,
+            style: const TextStyle(
                 color: AppColor.white,
                 fontSize: 16,
                 fontWeight: FontWeight.bold),

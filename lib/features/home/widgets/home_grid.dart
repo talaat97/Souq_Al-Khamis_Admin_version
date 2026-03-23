@@ -23,31 +23,31 @@ class HomeGrid extends StatelessWidget {
             ),
             children: [
               CardAdminHome(
-                title: 'الاصنــــــاف',
+                title: 'categories'.tr,
                 imageUrl: 'assets/image/category.jpeg',
                 navigartTo: controller.goToCategoriesPage,
               ),
               CardAdminHome(
-                title: 'المنتـــاجات',
+                title: 'products'.tr,
                 imageUrl: 'assets/image/product.png',
                 navigartTo: controller.goToItemsPage,
               ),
               CardAdminHome(
-                title: 'الاشعـــــرات',
+                title: 'notifications'.tr,
                 imageUrl: 'assets/image/notifaction.png',
                 navigartTo: controller.goToNotificationsPage,
               ),
               CardAdminHome(
-                title: 'الطلبــــات',
+                title: 'orders'.tr,
                 imageUrl: 'assets/image/order.png',
                 navigartTo: controller.goToViewOrdersPage,
               ),
-              const CardAdminHome(
-                title: 'message',
+              CardAdminHome(
+                title: 'messages'.tr,
                 imageUrl: 'assets/image/message.png',
               ),
               CardAdminHome(
-                title: 'الطيــــارين',
+                title: 'delivery_agents'.tr,
                 imageUrl: 'assets/image/delivery.png',
                 navigartTo: controller.goToDeliveriesPage,
               ),

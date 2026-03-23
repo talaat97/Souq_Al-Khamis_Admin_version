@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 
 /// ORDER STATUS REFERENCE
 /// ╔═══════╦══════════════════════════════════╦════════════════════╦══════════════════════╦═════════════╗
@@ -58,17 +59,17 @@ extension OrderStatusX on OrderStatus {
   Color get color {
     switch (this) {
       case OrderStatus.cancelled:
-        return Colors.red;
+        return AppColor.errorColor;
       case OrderStatus.waitingApproval:
-        return Colors.yellow.shade700;
+        return OrderStatusColor.waiting;
       case OrderStatus.pending:
-        return Colors.amber.shade800;
+        return OrderStatusColor.preparing;
       case OrderStatus.shipping:
-        return Colors.green;
+        return OrderStatusColor.shipping;
       case OrderStatus.archived:
-        return Colors.grey;
+        return OrderStatusColor.archived;
       case OrderStatus.unknown:
-        return Colors.grey;
+        return AppColor.neutralMedium;
     }
   }
 

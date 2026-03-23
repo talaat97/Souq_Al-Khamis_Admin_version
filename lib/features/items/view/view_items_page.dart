@@ -13,7 +13,7 @@ class ItemsPage extends GetView<ItemsController> {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
-        title: const Text('Items'),
+        title: Text('items_title'.tr),
       ),
       body: Obx(() {
         return HandlingDataView(

@@ -28,9 +28,15 @@ class OrderCard extends StatelessWidget {
     }
 
     return Card(
-      elevation: 2,
+      elevation: 0,
+      color: statusEnum.color.withOpacity(0.04), // soft background tint
       margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+            color: statusEnum.color.withOpacity(0.4),
+            width: 1.5), // matching border
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         onTap: () {
@@ -72,13 +78,13 @@ class OrderCard extends StatelessWidget {
                     icon: isPickup
                         ? Icons.storefront
                         : Icons.local_shipping_outlined,
-                    label: isPickup ? "Pickup" : "Delivery",
+                    label: isPickup ? 'pickup'.tr : 'delivery'.tr,
                     color: Colors.blueGrey,
                   ),
                   const SizedBox(width: 8),
                   _InfoChip(
                     icon: isOnline ? Icons.credit_card : Icons.money,
-                    label: isOnline ? "Online" : "Cash",
+                    label: isOnline ? 'online'.tr : 'cash'.tr,
                     color: Colors.teal,
                   ),
                 ],
@@ -90,8 +96,8 @@ class OrderCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Total (inc. delivery)",
-                      style: TextStyle(color: Colors.brown, fontSize: 13)),
+                  Text('total_inc_delivery'.tr,
+                      style: const TextStyle(color: Colors.brown, fontSize: 13)),
                   Text(
                     "\$${order.orderTotalPrice?.toStringAsFixed(2) ?? "0.00"}",
                     style: const TextStyle(

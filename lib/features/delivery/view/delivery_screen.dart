@@ -13,7 +13,7 @@ class DeliveryScreen extends GetView<DeliveryController> {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
-        title: const Text('Deliveries'),
+        title: Text('deliveries_title'.tr),
       ),
       body: Obx(() {
         return HandlingDataView(

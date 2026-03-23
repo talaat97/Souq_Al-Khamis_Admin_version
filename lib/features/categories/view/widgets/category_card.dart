@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/links_api.dart';
 import 'package:souq_al_khamis_admin_version/features/categories/data/models/category_model.dart';
+import 'package:souq_al_khamis_admin_version/core/functions/translate_database.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryModel category;
@@ -46,7 +47,7 @@ class CategoryCard extends StatelessWidget {
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
-                  category.categoriesName!,
+                  translateDatabase(category.categoriesNameAr, category.categoriesName),
                   style: TextStyle(
                     color: AppColor.textPrimary,
                     fontWeight: FontWeight.bold,

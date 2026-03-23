@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/controller/home/home_controller.dart';
+import 'package:souq_al_khamis_admin_version/features/home/widgets/change_language_dialog.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final HomeController controller;
@@ -14,8 +15,13 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       elevation: 5,
       centerTitle: true,
-      title: const Text('الصفحة الرئيسية'),
+      title: Text('home_title'.tr),
       actions: [
+        IconButton(
+          icon: const Icon(Icons.language_rounded),
+          tooltip: 'change_language'.tr,
+          onPressed: () => Get.dialog(const ChangeLanguageDialog()),
+        ),
         Obx(() {
           return IconButton(
             onPressed: controller.toggleGrid,
@@ -27,9 +33,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                       : Icons.view_module,
               size: 26,
             ),
-            tooltip: "تغير شكل الأيقونات",
+            tooltip: 'change_grid_tooltip'.tr,
           );
-        })
+        }),
       ],
     );
   }

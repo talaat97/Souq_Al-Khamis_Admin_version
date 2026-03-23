@@ -12,7 +12,7 @@ class EditCategoryPage extends GetView<EditCategoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Category'),
+        title: Text('edit_category_title'.tr),
       ),
       body: Form(
         key: controller.formKey,
@@ -24,9 +24,9 @@ class EditCategoryPage extends GetView<EditCategoryController> {
               AppTextFormField(
                 controller: controller.categoryNameController,
                 backgroundColor: AppColor.surfaceColor,
-                hintText: 'Category Name (English)',
+                hintText: 'category_name_en'.tr,
                 validator: (value) => value == null || value.isEmpty
-                    ? 'Please enter category name'
+                    ? 'category_name_required'.tr
                     : null,
               ),
               SizedBox(height: 18),
@@ -35,9 +35,9 @@ class EditCategoryPage extends GetView<EditCategoryController> {
               AppTextFormField(
                 controller: controller.categoryNameArabicController,
                 backgroundColor: AppColor.surfaceColor,
-                hintText: 'Category Name (Arabic)',
+                hintText: 'category_name_ar'.tr,
                 validator: (value) => value == null || value.isEmpty
-                    ? 'Please enter category name'
+                    ? 'category_name_required'.tr
                     : null,
               ),
 
@@ -48,8 +48,8 @@ class EditCategoryPage extends GetView<EditCategoryController> {
                 builder: (controller) => UploadImageCardCategoty(
                   file: controller.file,
                   onUpload: controller.uploadFile,
-                  title: 'Change Category Image',
-                  subtitle: 'SVG recommended (optional)',
+                  title: 'change_category_image'.tr,
+                  subtitle: 'svg_recommended_optional'.tr,
                 ),
               ),
             ],
@@ -68,9 +68,9 @@ class EditCategoryPage extends GetView<EditCategoryController> {
           onPressed: () {
             controller.editCategory();
           },
-          child: const Text(
-            'Update Item',
-            style: TextStyle(color: AppColor.white),
+          child: Text(
+            'update_item_btn'.tr,
+            style: const TextStyle(color: AppColor.white),
           ),
         ),
       ),

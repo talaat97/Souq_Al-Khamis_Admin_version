@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:souq_al_khamis_admin_version/core/constant/colors.dart';
 import 'package:souq_al_khamis_admin_version/features/order/controller/order_detail_controller.dart';
 import 'package:souq_al_khamis_admin_version/features/order/data/models/order_status.dart';
-import 'package:souq_al_khamis_admin_version/features/order/view/widgets/assign_delivery_sheet.dart';
 import 'package:souq_al_khamis_admin_version/features/order/view/widgets/order_price_breakdown.dart';
 import 'package:souq_al_khamis_admin_version/features/order/view/widgets/order_status_timeline.dart';
+import 'package:souq_al_khamis_admin_version/features/order/view/widgets/cancel_order_dialog.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:jiffy/jiffy.dart';
 
@@ -17,8 +17,8 @@ class OrderDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
-        title:
-            const Text("Order Details", style: TextStyle(color: Colors.white)),
+        title: Text('order_details'.tr,
+            style: const TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: AppColor.primaryColor,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -93,8 +93,8 @@ class OrderDetailScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Delivery Address",
-                          style: TextStyle(
+                      Text('delivery_address'.tr,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16)),
                       const SizedBox(height: 12),
                       Row(
@@ -148,24 +148,37 @@ class OrderDetailScreen extends StatelessWidget {
 
               // 5. Action Buttons based on Status
               if (order.orderStatus == 1) // waitingApproval
-                _ActionButton(
-                  label: "Approve Order",
-                  color: Colors.blue,
-                  isLoading: controller.isLoadingAction.value,
-                  onTap: () => controller.approveOrder(),
+                Column(
+                  children: [
+                    _ActionButton(
+                      label: 'approve_order'.tr,
+                      color: Colors.blue,
+                      isLoading: controller.isLoadingAction.value,
+                      onTap: () => controller.approveOrder(),
+                    ),
+                    const SizedBox(height: 8),
+                    _ActionButton(
+                      label: 'cancel_order'.tr,
+                      color: Colors.red,
+                      isLoading: controller.isLoadingAction.value,
+                      onTap: () {
+                        Get.dialog(CancelOrderDialog(controller: controller));
+                      },
+                    ),
+                  ],
                 )
               else if (order.orderStatus == 2) // pending
                 _ActionButton(
-                  label: "Assign to Delivery",
-                  color: Colors.purple,
+                  label: 'cancel_order'.tr,
+                  color: Colors.red,
                   isLoading: controller.isLoadingAction.value,
                   onTap: () {
-                    Get.bottomSheet(const AssignDeliverySheet());
+                    Get.dialog(CancelOrderDialog(controller: controller));
                   },
                 )
               else if (order.orderStatus == 3) // shipping
                 _ActionButton(
-                  label: "Mark as Archived",
+                  label: 'mark_archived'.tr,
                   color: Colors.green,
                   isLoading: controller.isLoadingAction.value,
                   onTap: () => controller.updateDeliveryStatus("1"),
@@ -200,7 +213,6 @@ class OrderDetailScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
               const SizedBox(height: 40),
             ],
           );
@@ -248,6 +260,7 @@ class _ActionButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         padding: const EdgeInsets.symmetric(vertical: 16),
+        minimumSize: const Size(double.infinity, 42),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
       ),

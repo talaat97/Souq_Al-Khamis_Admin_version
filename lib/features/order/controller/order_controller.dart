@@ -11,6 +11,8 @@ class OrderController extends GetxController {
 
   final orderList = <OrderModel>[].obs;
   final status = StatusRequest.loading.obs;
+  final pendingMessage =
+      RxnString(); // set before navigating back to show SnackBar on orders screen
 
   final activeTab = 0.obs;
 
